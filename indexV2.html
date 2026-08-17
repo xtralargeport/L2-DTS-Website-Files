@@ -12,13 +12,52 @@
     </head>
     <body>
         <header>
-            <ul>
-                <li><a href="rules.html"><h1>Rules</h1></a></li>
-                <li><a href="gear.html"><h1>Gear</h1></a></li>
-                <li><a href="wheretoplay.html"><h1>Where to Play</h1></a></li>
-                <li><a href="coaching.html"><h1>Coaching</h1></a></li>
-                <li><a href="practicingtips.html"><h1>Practicing Tips</h1></a></li>
-            </ul>
+            <!--NavBar-->
+            <nav>
+                <ul>
+                    <li class="nav-bar-logo">
+                        <a href="index.html"><img src="Images/logo.png" alt="Logo Image"></a>
+                    </li>
+                    <li><a href="javascript:void(0)" onclick="openNav()"><div class="menu-icon">&#9776;</div></a></li>
+                    <li><a href="javascript:void(0)" onclick="openCart()"><div class="cart-icon">&#128722;</div></a></li>
+                        <div id="main">
+                            <div id="mySidenav" class="sidenav">
+                                <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+                                <a href="index.html"><h1>Home</h1></a>
+                                <a href="rules.html"><h1>Rules</h1></a>
+                                <a href="gear.html"><h1>Gear</h1></a>
+                                <a href="wheretoplay.html"><h1>Where to Play</h1></a>
+                                <a href="coaching.html"><h1>Coaching</h1></a>
+                                <a href="practicingtips.html"><h1>Practicing Tips</h1></a>
+                            </div>
+                            <div id="mySideNavCart" class="sidenav">
+                                <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeCart()">&times;</a></div> 
+                            </div>                                                      
+                        </div>
+                        <script>
+                            function openNav() {
+                                document.getElementById("mySidenav").style.width = "15.625rem";
+                                document.getElementById("main").style.marginRight = "15.625rem";
+                            }
+
+                            function closeNav() {
+                                document.getElementById("mySidenav").style.width = "0";
+                                document.getElementById("main").style.marginRight = "0";
+                            }
+                            
+                            function openCart() {
+                                document.getElementById("mySideNavCart").style.width = "15.625rem";
+                                document.getElementById("main").style.marginRight = "15.625rem";
+                            }
+
+                            function closeCart() {
+                                document.getElementById("mySideNavCart").style.width = "0";
+                                document.getElementById("main").style.marginRight = "0";
+                            }
+                        </script>
+                    </li>
+                </ul>
+            </nav>
         </header>
 
     </body>
