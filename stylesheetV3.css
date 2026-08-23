@@ -43,7 +43,7 @@ header nav {
 header nav ul {
   list-style: none;
   margin: 0;
-  padding: 0.5rem;
+  padding: 0rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -74,14 +74,13 @@ header nav ul li a {
   display: inline-block;
   color: #FFFFFF;
   text-align: center;
-  padding: 0.5rem 2.5rem;
+  padding: 0.5rem 2rem;
   text-decoration: none;
-  font-size: 0.5rem;
-  border-radius: 2rem;
+  font-size: 0.6rem;
+
 } 
 
 /*NavBar when hovering over one of the pages*/
 header nav ul li a:hover, header nav ul li a:active {
-  color: #000000;
-  background-color: #84bcda;
+  background-color: #302c36;
 } 
