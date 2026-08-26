@@ -34,7 +34,11 @@ header nav {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 1;
+  height: 4.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header nav ul {
@@ -42,35 +46,44 @@ header nav ul {
   margin: 0;
   padding: 0.5rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
 }
-header nav ul li.nav-bar-logo img{
-  margin-right: auto;
-  padding-left: 0rem;
-  width: 8rem;
-  height: auto;
+
+/*Logo image size*/
+header nav ul li.nav-bar-logo img {
+  height: 3rem;
+  width: auto;
 }
 
-.nav-bar-logo a:hover{
-  background-color: #36313d;
-  width: 8rem;
-  height: auto;
+header nav ul li.nav-bar-logo a {
+  display: inline-block;
+  padding: 0.2rem 0;
+  align-items: center;
+  height: 100%;
+  margin-top: 0;
+}
+
+header nav ul li.nav-bar-logo a:hover{
+  background-color: #302c36;
+}
+
+.nav-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
 }
 
 .menu-icon {
   font-size: 2rem;
   color: #ffffff;
-  position: right;
-  display: flex;
   align-items: center;
   background-color: #067BC2;
-  background-origin: 1px solid #000000;
   padding-left: 0.8rem;
   padding-right: 0.8rem;
   padding-bottom: 0.5rem;
-  margin-left: 55rem;
   border: 0.1rem solid #FFFFFF;
   border-radius: 0.5rem;
 }
@@ -87,13 +100,10 @@ a {
 .cart-icon {
   font-size: 2rem;
   color: #ffffff;
-  position: right;
   display: flex;
   align-items: center;
   background-color: #067BC2;
-  background-origin: 1px solid #000000;
   padding: 0.25rem;
-  margin-left: 1rem;
   border: 0.1rem solid #FFFFFF;
   border-radius: 0.5rem;
 }
