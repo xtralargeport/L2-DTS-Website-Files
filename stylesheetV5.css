@@ -26,6 +26,12 @@ p {
   font-family: "Open Sauce(Light)";
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 header nav {
   width: 100%;
   margin: 0;
@@ -165,6 +171,8 @@ a {
   grid-template-rows: auto auto;
   row-gap: 0;
   column-gap: 0;
+  width: 100%;
+  margin-top: 1.8rem;
 }
 
 article,
@@ -176,7 +184,7 @@ section {
 
 .stadium-image,
 .team-image {
-  display: block; 
+  display: flex; 
   width: 100%;
   height: auto;
   margin: 0;
@@ -204,4 +212,69 @@ section p {
 @media screen and (max-height: 450px) {
   .sidenav{padding-top: 0.938rem;}
   .sidenav a{font-size: 1.125rem;}
+}
+
+footer {
+  background-color: #3C3744;
+  color: #FFFFFF;
+  padding: 3rem 2rem 1rem;
+  width: 100%;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.5fr;
+  gap: 14rem;
+  max-width: 90rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-column h2 {
+  font-size: 1.1rem;
+  margin: 0 0 1rem 0;
+  text-decoration: underline;
+}
+
+.footer-column p {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin: 0.5rem 0;
+}
+
+.footer-pages {
+  text-align: center;
+}
+
+.footer-page-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  text-align: left;
+}
+
+.footer-page-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-page-links li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-page-links a {
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  font-family: "Open Sauce(Bold)";
+}
+
+.footer-page-links a:hover {
+  color: #84bcda;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 0.75rem;
 }
