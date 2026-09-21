@@ -26,6 +26,12 @@ p {
   font-family: "Open Sauce(Light)";
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 header nav {
   width: 100%;
   margin: 0;
@@ -34,7 +40,11 @@ header nav {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 1;
+  height: 4.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header nav ul {
@@ -42,35 +52,44 @@ header nav ul {
   margin: 0;
   padding: 0.5rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
 }
-header nav ul li.nav-bar-logo img{
-  margin-right: auto;
-  padding-left: 0rem;
-  width: 8rem;
-  height: auto;
+
+/*Logo image size*/
+header nav ul li.nav-bar-logo img {
+  height: 3rem;
+  width: auto;
 }
 
-.nav-bar-logo a:hover{
-  background-color: #36313d;
-  width: 8rem;
-  height: auto;
+header nav ul li.nav-bar-logo a {
+  display: inline-block;
+  padding: 0.2rem 0;
+  align-items: center;
+  height: 100%;
+  margin-top: 0;
+}
+
+header nav ul li.nav-bar-logo a:hover{
+  background-color: #302c36;
+}
+
+.nav-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
 }
 
 .menu-icon {
   font-size: 2rem;
   color: #ffffff;
-  position: right;
-  display: flex;
   align-items: center;
   background-color: #067BC2;
-  background-origin: 1px solid #000000;
   padding-left: 0.8rem;
   padding-right: 0.8rem;
   padding-bottom: 0.5rem;
-  margin-left: 55rem;
   border: 0.1rem solid #FFFFFF;
   border-radius: 0.5rem;
 }
@@ -87,13 +106,10 @@ a {
 .cart-icon {
   font-size: 2rem;
   color: #ffffff;
-  position: right;
   display: flex;
   align-items: center;
   background-color: #067BC2;
-  background-origin: 1px solid #000000;
   padding: 0.25rem;
-  margin-left: 1rem;
   border: 0.1rem solid #FFFFFF;
   border-radius: 0.5rem;
 }
@@ -149,8 +165,239 @@ a {
   padding: 1rem;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  row-gap: 0;
+  column-gap: 0;
+  width: 100%;
+  margin-top: 1.8rem;
+}
+
+article,
+section {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.stadium-image,
+.team-image {
+  display: flex; 
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+article h1,
+section h1 {
+  font-size: 1.75vw;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: 3rem;
+}
+
+article p,
+section p {
+  font-size: 1.45vw;
+  margin-left: 12rem;
+  margin-right: 12rem;
+  margin-bottom: 6rem;
+  margin-top: 4.9rem;
+}
+
+footer {
+  background-color: #3C3744;
+  color: #FFFFFF;
+  padding: 3rem 2rem 1rem;
+  width: 100%;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1.5fr;
+  gap: 14rem;
+  max-width: 90rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-column h2 {
+  font-size: 1.1rem;
+  margin: 0 0 1rem 0;
+  text-decoration: underline;
+}
+
+.footer-column p {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin: 0.5rem 0;
+}
+
+.footer-pages {
+  text-align: center;
+}
+
+.footer-page-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  text-align: left;
+}
+
+.footer-page-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-page-links li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-page-links a {
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  font-family: "Open Sauce(Bold)";
+}
+
+.footer-page-links a:hover {
+  color: #84bcda;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 0.75rem;
+}
+
 /* Adjustments for different screen heights */
 @media screen and (max-height: 450px) {
   .sidenav{padding-top: 0.938rem;}
   .sidenav a{font-size: 1.125rem;}
+}
+
+.cart-title {
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.cart-items {
+  padding: 0 1rem;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.cart-empty {
+  color: #FFFFFF;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #3C3744;
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.cart-item-img {
+  width: 3rem;
+  height: 3rem;
+  object-fit: cover;
+  border-radius: 0.3rem;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-name {
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  font-family: "Open Sauce(Bold)";
+}
+
+.cart-item-price {
+  color: #84bcda;
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.cart-qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cart-qty-controls button {
+  background-color: #067BC2;
+  color: #FFFFFF;
+  border: 0.1rem solid #FFFFFF;
+  border-radius: 0.3rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+.cart-qty-controls button:hover {
+  background-color: #84bcda;
+  color: #000000;
+}
+
+.cart-qty-controls span {
+  color: #FFFFFF;
+  font-size: 0.85rem;
+}
+
+.cart-remove-btn {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.cart-remove-btn:hover {
+  color: #ff6b6b;
+}
+
+.cart-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  background-color: #302c36;
+  border-top: 0.1rem solid #FFFFFF;
+}
+
+.cart-total {
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.checkout-btn {
+  width: 100%;
+  background-color: #067BC2;
+  color: #FFFFFF;
+  border: 0.1rem solid #FFFFFF;
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+  cursor: pointer;
+  font-family: "Open Sauce(Bold)";
+}
+
+.checkout-btn:hover {
+  background-color: #84bcda;
+  color: #000000;
 }

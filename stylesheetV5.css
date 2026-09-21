@@ -208,12 +208,6 @@ section p {
   margin-top: 4.9rem;
 }
 
-/* Adjustments for different screen heights */
-@media screen and (max-height: 450px) {
-  .sidenav{padding-top: 0.938rem;}
-  .sidenav a{font-size: 1.125rem;}
-}
-
 footer {
   background-color: #3C3744;
   color: #FFFFFF;
@@ -277,4 +271,10 @@ footer {
   text-align: center;
   margin-top: 2rem;
   padding-top: 0.75rem;
+}
+
+/* Adjustments for different screen heights */
+@media screen and (max-height: 450px) {
+  .sidenav{padding-top: 0.938rem;}
+  .sidenav a{font-size: 1.125rem;}
 }
