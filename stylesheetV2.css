@@ -63,7 +63,7 @@ header nav ul li.nav-bar-logo {
 }
 
 /*Logo hover */
-header nav ul li.hav-bar-logo a:hover {
+header nav ul li.nav-bar-logo a:hover {
   background-color: #36313d;
   width: 8rem;
   height: auto;
