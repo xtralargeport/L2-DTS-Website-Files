@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+        <!--Page Info (Favicon, Stylesheet, Title etc)-->
+        <link rel="icon" type="image/x-icon" href="Images/logo.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Home Page for Pitch & Pavilion Cricket Website">
+	    <meta name="keywords" content="Pitch & Pavilion, Cricket, Sports, Batting, Bowling">
+        <link rel="stylesheet" href="stylesheetV9.css">
+        <title>Pitch & Pavilion - Coaching</title>
+    </head>
+    <body>
+        <header>
+            <!--NavBar-->
+            <nav>
+                <ul class="nav-left">
+                    <!-- Logo Top Left + Link-->
+                    <li class="nav-bar-logo">
+                        <a href="index.html"><img src="Images/logo.png" alt="Logo Image"></a>
+                    </li>
+                </ul>
+                <ul class="nav-right">
+                    <!-- Menu Buttons-->
+                    <li><a href="javascript:void(0)" onclick="openNav()"><div class="menu-icon">&#9776;</div></a></li>
+                    <li><a href="javascript:void(0)" onclick="openCart()"><div class="cart-icon">&#128722;</div></a></li>
+                </ul>
+            </nav>
+            <div id="main">
+                <!-- Close Icon in Menu Sidenav-->
+                <div id="mySidenav" class="sidenav">
+                    <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+                        <!-- Sidenav Links -->
+                        <a href="index.html"><h1>Home</h1></a>
+                        <a href="rules.html"><h1>Rules</h1></a>
+                        <a href="gear.html"><h1>Gear</h1></a>
+                        <a href="wheretoplay.html"><h1>Where to Play</h1></a>
+                        <a href="coaching.html"><h1>Coaching</h1></a>
+                        <a href="practicingtips.html"><h1>Practicing Tips</h1></a>
+                        <a href="contacts.html"><h1>Contact Us</h1></a>
+                    </div>
+                    <!-- Close Icon in Cart Sidenav-->
+                    <div id="mySideNavCart" class="sidenav">
+                        <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeCart()">&times;</a></div>
+                        <h1 class="cart-title">Your Cart</h1>
+                        <!-- Cart items get injected here by JS -->
+                        <div id="cartItems" class="cart-items"></div>
+                        <div class="cart-footer">
+                            <p class="cart-total">Total: <span id="cartTotal">$0.00</span></p>
+                            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+                        </div>
+                    </div>                                                     
+                </div>
+                <script>
+                    function openNav() {
+                        document.getElementById("mySidenav").style.width = "15.625rem";
+                        document.getElementById("main").style.marginRight = "15.625rem";
+                    }
+
+                    function closeNav() {
+                        document.getElementById("mySidenav").style.width = "0";
+                        document.getElementById("main").style.marginRight = "0";
+                    }
+                            
+                    function openCart() {
+                        document.getElementById("mySideNavCart").style.width = "15.625rem";
+                        document.getElementById("main").style.marginRight = "15.625rem";
+                    }
+
+                    function closeCart() {
+                        document.getElementById("mySideNavCart").style.width = "0";
+                        document.getElementById("main").style.marginRight = "0";
+                    }
+
+                    let cart = [];
+
+                    function addToCart(name, price, image = "") {
+                        const existing = cart.find(item => item.name === name);
+                        if (existing) {
+                            existing.qty++;
+                        } else {
+                            cart.push({ name, price, qty: 1, image });
+                        }
+                        renderCart();
+                        openCart();
+                    }
+
+                    function removeFromCart(index) {
+                        cart.splice(index, 1);
+                        renderCart();
+                    }
+
+                    function changeQty(index, delta) {
+                        cart[index].qty += delta;
+                        if (cart[index].qty <= 0) {
+                            cart.splice(index, 1);
+                        }
+                        renderCart();
+                    }
+
+                    function renderCart() {
+                        const cartItemsDiv = document.getElementById("cartItems");
+                        const cartTotalSpan = document.getElementById("cartTotal");
+
+                        if (cart.length === 0) {
+                            cartItemsDiv.innerHTML = `<p class="cart-empty">Your cart is empty.</p>`;
+                            cartTotalSpan.textContent = "$0.00";
+                            return;
+                        }
+
+                        let html = "";
+                        let total = 0;
+
+                        cart.forEach((item, index) => {
+                            const lineTotal = item.price * item.qty;
+                            total += lineTotal;
+
+                            html += `
+                                <div class="cart-item">
+                                    ${item.image ? `<img src="${item.image}" alt="${item.name}" class="cart-item-img">` : ""}
+                                    <div class="cart-item-info">
+                                        <p class="cart-item-name">${item.name}</p>
+                                        <p class="cart-item-price">$${item.price.toFixed(2)}</p>
+                                        <div class="cart-qty-controls">
+                                            <button onclick="changeQty(${index}, -1)">&minus;</button>
+                                            <span>${item.qty}</span>
+                                            <button onclick="changeQty(${index}, 1)">&plus;</button>
+                                        </div>
+                                    </div>
+                                    <button class="cart-remove-btn" onclick="removeFromCart(${index})">&times;</button>
+                                </div>
+                            `;
+                        });
+
+                        cartItemsDiv.innerHTML = html;
+                        cartTotalSpan.textContent = `$${total.toFixed(2)}`;
+                    }
+
+                    function checkout() {
+                        if (cart.length === 0) {
+                            alert("Your cart is empty!");
+                            return;
+                        }
+                        alert("Proceeding to checkout — total: " + document.getElementById("cartTotal").textContent);
+                    }
+                </script>
+            </div>
+        </header>
+        <main class="coaching-page">
+            <h1>Coaching</h1>
+
+            <!-- Row 1: text left, photo + links right -->
+            <div class="coach-row">
+                <div class="coach-text coach-text-left">
+                    <p>Cricket coaching is a dynamic blend of technical refinement, tactical strategy, and mental conditioning designed to elevate a player's game. At its core, effective coaching goes beyond merely perfecting a cover drive or mastering a seam position; it focuses on developing a player's situational awareness and decision-making under pressure. Modern coaches utilize video analysis and data metrics to dissect mechanics, but the true value lies in their ability to foster resilience, adapt to different formats—from the patience of Test matches to the high-octane environment of T20s—and build a cohesive team culture. Ultimately, cricket coaching empowers athletes to understand their own game, transforming raw talent into consistent, high-level performance on the field.</p>
+                </div>
+                <div class="coach-media">
+                    <img class="coach-photo coach-photo-wide" src="Images/coaching-team.jpg" alt="A coach talking to a group of young players in an indoor cricket net">
+                    <div class="coach-links">
+                        <a href="https://www.nzcricket.co.nz/coach-finder" target="_blank" rel="noopener">NZC Coach Finder</a>
+                        <a href="https://www.nzcricket.co.nz/high-performance-training" target="_blank" rel="noopener">NZC High Performance Training</a>
+                        <a href="https://www.nzcricket.co.nz/coach-squad-nz" target="_blank" rel="noopener">Coach Squad NZ</a>
+                        <a href="#" target="_blank" rel="noopener">Find Me a Coach</a>
+                    </div>
+                </div>
+            </div>
+            <div class="coach-row">
+                <div class="coach-text coach-text-center">
+                    <p>In New Zealand, finding quality cricket coaching is highly accessible through the structured network of New Zealand Cricket (NZC) and its six major domestic associations: Auckland Cricket, Northern Districts Cricket, Central Districts Cricket, Cricket Wellington, Canterbury Cricket, and Otago Cricket. For players of all ages and skill levels, the local cricket club network serves as the primary starting point, offering volunteer-led junior programs like Smash Play as well as specialized club coaches for senior divisions. For those seeking advanced, high-performance training, private academies—such as the NZC High Performance Centre in Lincoln—and independent indoor cricket centers across major cities provide specialized one-on-one sessions, video analysis, and school holiday clinics. Additionally, checking regional sports trusts or utilizing the official NZC Coach Finder tools online can quickly connect you with certified, vetted coaches in your specific area.</p>
+                </div>
+
+                <div class="coach-media">
+                    <img class="coach-photo coach-photo-tall" src="Images/coaching-junior.jpg" alt="A coach crouching to talk with a young batter beside a net">
+                </div>
+            </div>
+        </main>
+        <script>
+            renderCart();
+        </script>
+        <footer>
+            <div class="footer">
+                <div class="footer-column">
+                    <h2>Contacts</h2>
+                    <p>
+                        If you have any thoughts or questions for us, contact us here!
+                    </p>
+                    <p>
+                        Phone: +64 020 4186 3681<br>Email: 23031@lbc.school.nz
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h2>TOS</h2>
+                    <p>
+                        By using this site, you agree to our forms. All content &copy; 2026 Pitch & Pavilion. 
+                        Provided "as-is" without warranties
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h2>Privacy</h2>
+                    <p>
+                        &copy; 2026 Pitch & Pavilion. Provided "as-is". We respect your privacy and never sell your data.
+                    </p>
+                </div>
+                <div class="footer-column footer-page-section">
+                    <h2>Pages</h2>
+                    <div class="footer-page-links">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="gear.html">Gear</a></li>
+                            <li><a href="coaching.html">Coaching</a></li>
+                            <li><a href="contacts.html">Contact Us</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="rules.html">Rules</a></li>
+                            <li><a href="wheretoplay.html">Where to Play</a></li>
+                            <li><a href="practicingtips.html">Practicing Tips</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Pitch & Pavilion. All rights reserved.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
