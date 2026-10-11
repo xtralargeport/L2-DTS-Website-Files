@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+        <!--Page Info (Favicon, Stylesheet, Title etc)-->
+        <link rel="icon" type="image/x-icon" href="Images/logo.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Home Page for Pitch & Pavilion Cricket Website">
+	    <meta name="keywords" content="Pitch & Pavilion, Cricket, Sports, Batting, Bowling">
+        <link rel="stylesheet" href="stylesheetV7.css">
+        <title>Pitch & Pavilion - Gear</title>
+    </head>
+    <body>
+        <header>
+            <!--NavBar-->
+            <nav>
+                <ul class="nav-left">
+                    <!-- Logo Top Left + Link-->
+                    <li class="nav-bar-logo">
+                        <a href="index.html"><img src="Images/logo.png" alt="Logo Image"></a>
+                    </li>
+                </ul>
+                <ul class="nav-right">
+                    <!-- Menu Buttons-->
+                    <li><a href="javascript:void(0)" onclick="openNav()"><div class="menu-icon">&#9776;</div></a></li>
+                    <li><a href="javascript:void(0)" onclick="openCart()"><div class="cart-icon">&#128722;</div></a></li>
+                </ul>
+            </nav>
+            <div id="main">
+                <!-- Close Icon in Menu Sidenav-->
+                <div id="mySidenav" class="sidenav">
+                    <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+                        <!-- Sidenav Links -->
+                        <a href="index.html"><h1>Home</h1></a>
+                        <a href="rules.html"><h1>Rules</h1></a>
+                        <a href="gear.html"><h1>Gear</h1></a>
+                        <a href="wheretoplay.html"><h1>Where to Play</h1></a>
+                        <a href="coaching.html"><h1>Coaching</h1></a>
+                        <a href="practicingtips.html"><h1>Practicing Tips</h1></a>
+                        <a href="contacts.html"><h1>Contact Us</h1></a>
+                    </div>
+                    <!-- Close Icon in Cart Sidenav-->
+                    <div id="mySideNavCart" class="sidenav">
+                        <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeCart()">&times;</a></div> 
+                    </div>                                                      
+                </div>
+                <script>
+                    function openNav() {
+                        document.getElementById("mySidenav").style.width = "15.625rem";
+                        document.getElementById("main").style.marginRight = "15.625rem";
+                    }
+
+                    function closeNav() {
+                        document.getElementById("mySidenav").style.width = "0";
+                        document.getElementById("main").style.marginRight = "0";
+                    }
+                            
+                    function openCart() {
+                        document.getElementById("mySideNavCart").style.width = "15.625rem";
+                        document.getElementById("main").style.marginRight = "15.625rem";
+                    }
+
+                    function closeCart() {
+                        document.getElementById("mySideNavCart").style.width = "0";
+                        document.getElementById("main").style.marginRight = "0";
+                    }
+
+                    let cart = [];
+
+                    function addToCart(name, price, image = "") {
+                        const existing = cart.find(item => item.name === name);
+                        if (existing) {
+                            existing.qty++;
+                        } else {
+                            cart.push({ name, price, qty: 1, image });
+                        }
+                        renderCart();
+                        openCart();
+                    }
+
+                    function removeFromCart(index) {
+                        cart.splice(index, 1);
+                        renderCart();
+                    }
+
+                    function changeQty(index, delta) {
+                        cart[index].qty += delta;
+                        if (cart[index].qty <= 0) {
+                            cart.splice(index, 1);
+                        }
+                        renderCart();
+                    }
+
+                    function renderCart() {
+                        const cartItemsDiv = document.getElementById("cartItems");
+                        const cartTotalSpan = document.getElementById("cartTotal");
+
+                        if (cart.length === 0) {
+                            cartItemsDiv.innerHTML = `<p class="cart-empty">Your cart is empty.</p>`;
+                            cartTotalSpan.textContent = "$0.00";
+                            return;
+                        }
+
+                        let html = "";
+                        let total = 0;
+
+                        cart.forEach((item, index) => {
+                            const lineTotal = item.price * item.qty;
+                            total += lineTotal;
+
+                            html += `
+                                <div class="cart-item">
+                                    ${item.image ? `<img src="${item.image}" alt="${item.name}" class="cart-item-img">` : ""}
+                                    <div class="cart-item-info">
+                                        <p class="cart-item-name">${item.name}</p>
+                                        <p class="cart-item-price">$${item.price.toFixed(2)}</p>
+                                        <div class="cart-qty-controls">
+                                            <button onclick="changeQty(${index}, -1)">&minus;</button>
+                                            <span>${item.qty}</span>
+                                            <button onclick="changeQty(${index}, 1)">&plus;</button>
+                                        </div>
+                                    </div>
+                                    <button class="cart-remove-btn" onclick="removeFromCart(${index})">&times;</button>
+                                </div>
+                            `;
+                        });
+
+                        cartItemsDiv.innerHTML = html;
+                        cartTotalSpan.textContent = `$${total.toFixed(2)}`;
+                    }
+
+                    function checkout() {
+                        if (cart.length === 0) {
+                            alert("Your cart is empty!");
+                            return;
+                        }
+                        alert("Proceeding to checkout — total: " + document.getElementById("cartTotal").textContent);
+                    }
+                </script>
+            </div>
+        </header>
+        <main class="gear-page">
+            <h1>Gear</h1>
+
+            <section class="gear-intro">
+                <div class="gear-text">
+                    <p>Cricket gear is far more than just a uniform; it is a critical blend of traditional craftsmanship and advanced sports science designed to optimize performance. From the willow bat engineered for the perfect sweet spot to specialized spiked footwear that provides traction on turf pitches, every piece of equipment serves a distinct technical purpose. High-quality gear allows players to execute skills with precision, whether that means a batter timing a high-velocity cover drive, a bowler maintaining stability through a high-impact delivery stride, or a fielder confidently tracking a ball in the deep.</p>
+                    <p>Beyond enhancing performance, cricket gear is the primary line of defense against the physical demands and inherent risks of the sport. A standard cricket ball is made of solid cork and layered leather, traveling at speeds that can exceed 140 km/h at the professional level. Modern protective equipment—including helmets with reinforced steel visors, molded leg guards, impact-absorbing batting gloves, and specialized body armor—is rigorously engineered to dissipate force and prevent severe injuries. Investing in the right protective gear ensures that players can step onto the crease with total confidence, focusing entirely on their strategy and technique rather than their physical safety.</p>
+                </div>
+                <img class="gear-photo" src="Images/gear-batter.png" alt="A batter in a helmet and pads taking guard at the crease">
+            </section>
+
+            <section class="shop-intro">
+                <h2>Shop Gear</h2>
+                <p>When purchasing cricket gear, prioritizing safety, correct sizing, and your current playing level will ensure the best investment. For beginners and junior players, focusing on high-quality protective essentials—like a properly fitted helmet and impact-absorbing pads—should take precedence over expensive professional bats. It is often highly beneficial to visit a specialist cricket retailer in person to test the weight and pickup of a bat, as well as ensure protective guards fit snugly without restricting movement. Investing in the right gear from the start not only elevates your performance on the field but provides the essential peace of mind needed to play with total confidence.</p>
+            </section>
+
+            <section class="gear-shop">
+                <div class="gear-tabs" role="tablist" aria-label="Gear categories">
+                    <button type="button" class="gear-tab active" role="tab" aria-selected="true" data-category="bats">Bats</button>
+                    <button type="button" class="gear-tab" role="tab" aria-selected="false" data-category="helmets">Helmets</button>
+                    <button type="button" class="gear-tab" role="tab" aria-selected="false" data-category="upper">Upper Half Gear</button>
+                    <button type="button" class="gear-tab" role="tab" aria-selected="false" data-category="lower">Lower Half Gear</button>
+                    <button type="button" class="gear-tab" role="tab" aria-selected="false" data-category="bowling">Bowling Gear</button>
+                </div>
+
+                <div class="gear-carousel">
+                    <div class="carousel-arrows">
+                        <button type="button" class="arrow-btn prev" id="prevBtn" aria-label="Previous products"></button>
+                        <button type="button" class="arrow-btn next" id="nextBtn" aria-label="Next products"></button>
+                    </div>
+                    <div class="product-track" id="productTrack"></div>
+                </div>
+            </section>
+        </main>
+        <script>
+            const gearProducts = {
+                bats: [
+                    { brand: "Kookaburra", name: "Prism 7.0",  price: 99.99, image: "Images/bats/prism-7.png" },
+                    { brand: "Kookaburra", name: "Kahuna PRO", price: 99.99, image: "Images/bats/kahuna-pro.png" },
+                    { brand: "Kookaburra", name: "Ghost 7.1",  price: 99.99, image: "Images/bats/ghost-7-1.png" },
+                    { brand: "Kookaburra", name: "Monarch",    price: 99.99, image: "Images/bats/monarch.png" },
+                    { brand: "Gray-Nicolls", name: "Velocity", price: 99.99, image: "Images/bats/velocity.png" }
+                ],
+                helmets: [],
+                upper: [],
+                lower: [],
+                bowling: []
+            };
+
+            const tabs = document.querySelectorAll(".gear-tab");
+            const track = document.getElementById("productTrack");
+            let currentCategory = "bats";
+
+            function showCategory(key) {
+                currentCategory = key;
+                tabs.forEach(function (t) {
+                    const on = t.dataset.category === key;
+                    t.classList.toggle("active", on);
+                    t.setAttribute("aria-selected", on);
+                });
+
+                const list = gearProducts[key];
+                if (!list.length) {
+                    track.innerHTML = '<p class="product-empty">Products coming soon.</p>';
+                } else {
+                    track.innerHTML = list.map(function (p, i) {
+                        return '<div class="product-card">' +
+                            '<p class="product-brand">' + p.brand + '</p>' +
+                            '<div class="product-img"><img src="' + p.image + '" alt="' + p.brand + ' ' + p.name + '"></div>' +
+                            '<p class="product-name">' + p.name + '</p>' +
+                            '<button type="button" class="add-btn" data-index="' + i + '">Add To Cart</button>' +
+                            '</div>';
+                    }).join("");
+                }
+                track.scrollTo({ left: 0, behavior: "auto" });
+            }
+
+            tabs.forEach(function (t) {
+                t.addEventListener("click", function () { showCategory(t.dataset.category); });
+            });
+
+            track.addEventListener("click", function (e) {
+                const btn = e.target.closest(".add-btn");
+                if (!btn) return;
+                const p = gearProducts[currentCategory][btn.dataset.index];
+                addToCart(p.brand + " " + p.name, p.price, p.image);
+            });
+
+            function scrollStep(direction) {
+                const card = track.querySelector(".product-card");
+                if (!card) return;
+                const gap = parseFloat(getComputedStyle(track).columnGap) || 16;
+                track.scrollBy({ left: direction * (card.offsetWidth + gap), behavior: "smooth" });
+            }
+            document.getElementById("prevBtn").addEventListener("click", function () { scrollStep(-1); });
+            document.getElementById("nextBtn").addEventListener("click", function () { scrollStep(1); });
+
+            showCategory("bats");
+            renderCart();
+        </script>
+    </body>
+</html>
