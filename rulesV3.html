@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+        <!--Page Info (Favicon, Stylesheet, Title etc)-->
+        <link rel="icon" type="image/x-icon" href="Images/logo.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Home Page for Pitch & Pavilion Cricket Website">
+	    <meta name="keywords" content="Pitch & Pavilion, Cricket, Sports, Batting, Bowling">
+        <link rel="stylesheet" href="stylesheetV6.css">
+        <title>Pitch & Pavilion - Rules</title>
+    </head>
+    <body>
+        <header>
+            <!--NavBar-->
+            <nav>
+                <ul class="nav-left">
+                    <!-- Logo Top Left + Link-->
+                    <li class="nav-bar-logo">
+                        <a href="index.html"><img src="Images/logo.png" alt="Logo Image"></a>
+                    </li>
+                </ul>
+                <ul class="nav-right">
+                    <!-- Menu Buttons-->
+                    <li><a href="javascript:void(0)" onclick="openNav()"><div class="menu-icon">&#9776;</div></a></li>
+                    <li><a href="javascript:void(0)" onclick="openCart()"><div class="cart-icon">&#128722;</div></a></li>
+                </ul>
+            </nav>
+            <div id="main">
+                <!-- Close Icon in Menu Sidenav-->
+                <div id="mySidenav" class="sidenav">
+                    <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+                        <!-- Sidenav Links -->
+                        <a href="index.html"><h1>Home</h1></a>
+                        <a href="rules.html"><h1>Rules</h1></a>
+                        <a href="gear.html"><h1>Gear</h1></a>
+                        <a href="wheretoplay.html"><h1>Where to Play</h1></a>
+                        <a href="coaching.html"><h1>Coaching</h1></a>
+                        <a href="practicingtips.html"><h1>Practicing Tips</h1></a>
+                        <a href="contacts.html"><h1>Contact Us</h1></a>
+                    </div>
+                    <!-- Close Icon in Cart Sidenav-->
+                    <div id="mySideNavCart" class="sidenav">
+                        <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeCart()">&times;</a></div> 
+                    </div>                                                      
+                </div>
+                <script>
+                    <!-- JavaScript for opening and closing the sidenav-->
+                    function openNav() {
+                        document.getElementById("mySidenav").style.width = "15.625rem";
+                        document.getElementById("main").style.marginRight = "15.625rem";
+                    }
+
+                    function closeNav() {
+                        document.getElementById("mySidenav").style.width = "0";
+                        document.getElementById("main").style.marginRight = "0";
+                    }
+                            
+                    function openCart() {
+                        document.getElementById("mySideNavCart").style.width = "15.625rem";
+                        document.getElementById("main").style.marginRight = "15.625rem";
+                    }
+
+                    function closeCart() {
+                        document.getElementById("mySideNavCart").style.width = "0";
+                        document.getElementById("main").style.marginRight = "0";
+                    }
+                </script>
+            </div>
+        </header>
+        <main class="rules-page">
+            <nav class="rules-jump" aria-label="Jump to section">
+                <a href="#basics">The Basics</a>
+                <a href="#fielding">Fielding Positions</a>
+                <a href="#nuances">Tactical Nuances</a>
+            </nav>
+            <section id="basics" class="rules-section">
+                <h1>Rules</h1>
+                <div class="rules-grid">
+                    <div class="rules-text">
+                        <h3 class="sub-title">The Basics of Cricket</h3>
+                        <p>Cricket is a bat-and-ball game played between two teams of 11 players each. The main objective is simple: score more runs than the opposition.</p>
+                        <h3>1. The Core Setup</h3>
+                        <p><span class="term">The Pitch:</span> The action happens on a 22-yard rectangular strip in the center of the field, with three wooden stakes called wickets at each end.</p>
+                        <p><span class="term">Batter vs. Bowler:</span> The bowler throws (bowls) the ball from one end to hit the wicket at the other end. The batter tries to defend the wicket and hit the ball away.</p>
+                        <h3>2. Scoring Runs</h3>
+                        <p>Batters score runs in two main ways:</p>
+                        <p><span class="term">Running:</span> After hitting the ball, the two batters on the pitch run to the opposite ends. Each successful swap equals 1 run.</p>
+                        <p><span class="term">Boundaries:</span> If the ball hits the outer boundary line of the field, it scores automatic runs.</p>
+                        <p>4 runs: If the ball bounces before crossing the line.</p>
+                        <p>6 runs: If the ball crosses the line without bouncing (a home run equivalent).</p>
+                        <h3>3. Getting Out (Dismissals)</h3>
+                        <p>The fielding team wants to get 10 batters out (dismissed) to end the innings. The most common ways to get out are:</p>
+                        <p><span class="term">Bowled:</span> The bowler's delivery gets past the batter and hits the wickets.</p>
+                        <p><span class="term">Caught:</span> The batter hits the ball into the air, and a fielder catches it before it touches the ground.</p>
+                        <p><span class="term">Leg Before Wicket (LBW):</span> The ball hits the batter's leg instead of the bat, and the umpire judges that it would have hit the wickets.</p>
+                        <p><span class="term">Run Out / Stumped:</span> A fielder throws the ball into the wickets while the batter is outside their safe ground (crease).</p>
+                        <h3>4. Structure of the Game</h3>
+                        <p><span class="term">Overs:</span> The game is measured in "overs." One over equals 6 legal balls bowled by a single bowler.</p>
+                        <p><span class="term">Innings:</span> One team bats while the other fields. Once the batting team loses 10 wickets or their overs run out, the teams swap roles.</p>
+                    </div>
+                    <img class="rules-pitch" src="Images/image_2026-10-05_230214578.jpg" alt="basic cricket pitch">
+                    <div class="rules-side">
+                        <img src="Images/image.jpg" alt="Scoreboard showing batters' runs, balls faced, fours and sixes, and the current run rate">
+                        <img src="Images/image_001.jpg" alt="Players on a grass cricket field during a casual match">
+                    </div>
+                </div>
+            </section>
+            <hr class="rules-divider">
+            <section id="advanced" class="rules-section">
+                <h1>Advanced Rules</h1>
+                <div id="fielding" class="adv-row">
+                    <div class="rules-text">
+                        <p>In cricket, fielding positions are highly strategic and change constantly depending on the style of the bowler and the tactics of the captain. The field is divided into two halves based on where the batter stands: the Off-Side (the side the batter faces) and the Leg-Side (also called the On-Side, which is behind the batter's back).</p>
+                        <p>Here are the essential rules and concepts governing cricket fielding positions:</p>
+                        <h3>1. The Core Legal Restrictions</h3>
+                        <p>While a captain can technically place fielders almost anywhere, the official laws of cricket enforce a few strict limits:</p>
+                        <p><span class="term">The Behind-the-Leg-Side Rule (Law 28.4):</span> There can never be more than two fielders on the leg-side behind the batter's popping crease (the "quarter" of the field behind square leg). This rule was introduced historically to prevent dangerous bodyline bowling tactics.</p>
+                        <p><span class="term">The Wicketkeeper:</span> This is the only fielder permitted to wear external leg guards (pads) and specialized catching gloves. They must remain entirely behind the stumps until the ball passes the batter or is hit.</p>
+                        <h3>2. Standard Fielding Templates</h3>
+                        <p>Fielding positions are generally categorized by how close they are to the batter:</p>
+                        <p><span class="term">Attacking / Catching Positions:</span> Placed incredibly close to the batter to catch edges.</p>
+                        <p><span class="term">Slips:</span> Lined up next to the wicketkeeper on the off-side to catch deflections off the bat.</p>
+                        <p><span class="term">Gully:</span> Positioned just wider than the slips for flying edges.</p>
+                        <p><span class="term">Silly Positions (Silly Point, Short Leg):</span> Fielders standing just feet away from the batter, wearing helmets for safety, looking for quick bat-pad catches.</p>
+                        <p><span class="term">Inner Ring (Saving the Single):</span> Placed about 20-30 yards away from the batter to stop quick runs.</p>
+                        <p><span class="term">Point &amp; Cover:</span> Crucial off-side positions that field high-velocity horizontal bat shots (like cuts and drives).</p>
+                        <p><span class="term">Mid-Off &amp; Mid-On:</span> Positioned on either side of the bowler to stop straight drives.</p>
+                        <p><span class="term">The Outfield (Deep Positions):</span> Placed right on the boundary rope to prevent boundaries (4s and 6s) and catch high mishit shots.</p>
+                        <p><span class="term">Deep Mid-Wicket / Long-On:</span> Popular targets for powerful leg-side hitting.</p>
+                        <p><span class="term">Third Man:</span> Deep on the off-side behind the wicket, saving runs from deflections.</p>
+                    </div>
+                    <img class="fielding-img" src="Images/image_002.jpg" alt="Diagram of fielding positions for a right-handed batter, with the off side on the left and the leg side on the right">
+                </div>
+                <div id="nuances" class="adv-row adv-row-photos">
+                    <div class="adv-photos">
+                        <img src="Images/image_003.jpg" alt="A batter struck on the pad while fielders appeal for LBW">
+                        <img src="Images/image_004.jpg" alt="A fielder breaking the stumps for a run out while the batter dives for the crease">
+                    </div>
+                    <div class="rules-text">
+                        <h3 class="sub-title"><span class="term">Advanced Rules &amp; Tactical Nuances</span></h3>
+                        <h3>1. The LBW (Leg Before Wicket) Blueprint</h3>
+                        <p>An LBW dismissal is one of the most complex decisions an umpire makes. For a batter to be given out LBW, three strict conditions must be met:</p>
+                        <p><span class="term">The Pitching:</span> The ball must pitch (bounce) either directly in line with the stumps or on the "off-side" (the side the batter faces). If it pitches on the "leg-side" (behind the batter's foot), they cannot be out LBW.</p>
+                        <p><span class="term">The Impact:</span> The ball must hit the batter's pad/body in line with the stumps. However, if the batter is making a genuine attempt to hit the ball with their bat, the impact rules loosen slightly depending on the trajectory.</p>
+                        <p><span class="term">The Wickets:</span> The umpire must judge that the ball's trajectory would have gone on to crash into the stumps if the pad hadn't blocked it.</p>
+                        <h3>2. The Powerplays (Fielding Restrictions)</h3>
+                        <p>In limited-overs cricket (ODI and T20), fielding teams face strict limits on where they can position players to prevent defensive blockades and encourage high-scoring shots:</p>
+                        <p><span class="term">Mandatory Powerplay (Overs 1-10 in ODIs, 1-6 in T20s):</span> Only two fielders are allowed outside the 30-yard inner circle.</p>
+                        <p><span class="term">Middle Overs:</span> The restriction eases, allowing up to four or five fielders outside the circle depending on the specific format.</p>
+                        <h3>3. The "Free Hit"</h3>
+                        <p>If a bowler delivers a No-Ball by overstepping the front crease line with their foot, the batting team gains two massive advantages:</p>
+                        <p>They are awarded 1 penalty run.</p>
+                        <p>The very next delivery is designated a Free Hit. On a Free Hit, the batter cannot be dismissed by most traditional methods (like being caught, bowled, or LBW). They can only be run out, stumped, or hit the ball twice.</p>
+                        <h3>4. The DLS Method (Duckworth-Lewis-Stern)</h3>
+                        <p>When rain or bad light interrupts a limited-overs match, the game isn't simply reset. Officials use a complex mathematical formula called the DLS Method.</p>
+                        <p>Instead of just looking at runs, the formula calculates how many "resources" a team has left, combining overs remaining and wickets lost.</p>
+                        <p>If the team batting second has their innings shortened, the DLS method calculates a revised, often higher target score based on the resources they have available.</p>
+                        <h3>5. Dead Ball &amp; Mankading (Run Out at the Non-Striker's End)</h3>
+                        <p><span class="term">Dead Ball:</span> A ball becomes "dead" when it finally settles in the hands of the wicketkeeper or bowler, or when a boundary is scored. No runs can be scored and no wickets can fall once the ball is dead.</p>
+                        <p><span class="term">The "Mankad":</span> If the non-striker batter leaves their safe ground (crease) before the bowler has actually released the ball, the bowler is legally permitted to whip off the bails and run them out. While historically controversial, it is strictly legal under official ICC rules.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

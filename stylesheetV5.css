@@ -165,7 +165,7 @@ a {
   padding: 1rem;
 }
 
-.grid {
+.index-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
