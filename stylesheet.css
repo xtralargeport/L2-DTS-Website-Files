@@ -165,7 +165,7 @@ a {
   padding: 1rem;
 }
 
-.grid {
+.index-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
@@ -271,12 +271,6 @@ footer {
   text-align: center;
   margin-top: 2rem;
   padding-top: 0.75rem;
-}
-
-/* Adjustments for different screen heights */
-@media screen and (max-height: 450px) {
-  .sidenav{padding-top: 0.938rem;}
-  .sidenav a{font-size: 1.125rem;}
 }
 
 .cart-title {
@@ -400,4 +394,146 @@ footer {
 .checkout-btn:hover {
   background-color: #84bcda;
   color: #000000;
+}
+
+.rules-page {
+    margin-top: 4.4rem;
+    padding: 0 2rem 3rem;
+    background: #fff;
+    color: #000;
+}
+
+.rules-jump {
+    position: sticky;
+    top: 4.4rem;
+    z-index: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    margin: 0 -2rem 0.5rem;
+    background: #fff;
+}
+.rules-jump a {
+    font-family: "Open Sauce(Bold)", sans-serif;
+    font-size: 0.95rem;
+    color: #fff;
+    background: #067BC2;
+    border: 0.1rem solid #3C3744;
+    border-radius: 0.5rem;
+    padding: 0.4rem 1.1rem;
+}
+.rules-jump a:hover { 
+    background: #84bcda; 
+    color: #000; 
+}
+
+.rules-jump a:focus-visible { 
+    outline: 3px solid #3C3744; 
+    outline-offset: 2px; 
+}
+
+.rules-page .rules-section { 
+    padding: 0; 
+}
+#basics, #fielding, #nuances { 
+    scroll-margin-top: 8.5rem; 
+}
+
+.rules-page h1 {
+    font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+    margin: 1rem 0 1.25rem;
+}
+
+
+.rules-page p {
+    font-size: clamp(0.8rem, 0.95vw, 1rem);
+    line-height: 1.4;
+    margin: 0 0 0.35rem;
+}
+
+.rules-page h3 {
+    font-family: "Open Sauce(Light)", sans-serif;
+    font-weight: normal;
+    font-size: clamp(0.8rem, 0.95vw, 1rem);
+    line-height: 1.4;
+    margin: 0.9rem 0 0.35rem;
+}
+
+.rules-page h3.sub-title {
+    font-family: "Open Sauce(Bold)", sans-serif;
+    margin-top: 0;
+}
+
+.rules-page .term { 
+    text-decoration: underline;
+}
+
+.rules-page h3.sub-title .term { 
+    text-decoration: underline; 
+}
+
+.rules-page img { 
+    display: block; 
+    width: 100%; 
+    height: auto; 
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1.2fr 0.9fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+.rules-side { 
+    display: grid; 
+    gap: 1rem; 
+}
+
+.rules-divider {
+    border: 0;
+    height: 3px;
+    background: #3a3a3a;
+    margin: 2.5rem 0 1.5rem;
+}
+
+.adv-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+    margin-bottom: 2rem;
+}
+
+.rules-page .adv-photos { 
+  display: grid; 
+  gap: 1rem; 
+  width: 70%;
+  margin: 0 auto;
+}
+
+.rules-page .fielding-img { 
+  margin-top: 0.25rem; 
+  margin: 0.25rem auto 0;
+  width: 80%;
+}
+
+.rules-page .adv-photos img {
+    width: 100%;
+}
+
+@media (max-width: 56rem) {
+    .rules-page { padding: 0 1rem 2rem; }
+    .rules-jump { margin: 0 -1rem 0.5rem; }
+    .rules-grid,
+    .adv-row { grid-template-columns: 1fr; }
+    .rules-page p,
+    .rules-page h3 { font-size: 1rem; }
+}
+
+/* Adjustments for different screen heights */
+@media screen and (max-height: 450px) {
+  .sidenav{padding-top: 0.938rem;}
+  .sidenav a{font-size: 1.125rem;}
 }

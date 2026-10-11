@@ -273,6 +273,129 @@ footer {
   padding-top: 0.75rem;
 }
 
+.cart-title {
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.cart-items {
+  padding: 0 1rem;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.cart-empty {
+  color: #FFFFFF;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #3C3744;
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.cart-item-img {
+  width: 3rem;
+  height: 3rem;
+  object-fit: cover;
+  border-radius: 0.3rem;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-name {
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  font-family: "Open Sauce(Bold)";
+}
+
+.cart-item-price {
+  color: #84bcda;
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.cart-qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cart-qty-controls button {
+  background-color: #067BC2;
+  color: #FFFFFF;
+  border: 0.1rem solid #FFFFFF;
+  border-radius: 0.3rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+.cart-qty-controls button:hover {
+  background-color: #84bcda;
+  color: #000000;
+}
+
+.cart-qty-controls span {
+  color: #FFFFFF;
+  font-size: 0.85rem;
+}
+
+.cart-remove-btn {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.cart-remove-btn:hover {
+  color: #ff6b6b;
+}
+
+.cart-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  background-color: #302c36;
+  border-top: 0.1rem solid #FFFFFF;
+}
+
+.cart-total {
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.checkout-btn {
+  width: 100%;
+  background-color: #067BC2;
+  color: #FFFFFF;
+  border: 0.1rem solid #FFFFFF;
+  border-radius: 0.5rem;
+  padding: 0.6rem;
+  cursor: pointer;
+  font-family: "Open Sauce(Bold)";
+}
+
+.checkout-btn:hover {
+  background-color: #84bcda;
+  color: #000000;
+}
+
 .rules-page {
     margin-top: 4.4rem;
     padding: 0 2rem 3rem;
