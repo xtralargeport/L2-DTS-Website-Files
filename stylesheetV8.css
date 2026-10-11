@@ -818,8 +818,10 @@ footer {
   color: #000;
   text-decoration: underline !important;
 }
-.wtp-page .assoc-link:hover { color: #067BC2; }
 
+.wtp-page .assoc-link:hover { 
+    color: #067BC2; 
+}
 
 .program-desc {
   padding-left: 0.4rem;
