@@ -867,7 +867,9 @@ footer {
 }
 
 
-.coach-media { text-align: center; }
+.coach-media { 
+  text-align: center;
+}
 
 .coaching-page .coach-photo {
   display: block;
@@ -881,7 +883,6 @@ footer {
 .coaching-page .coach-photo-tall {
     width: 45%; 
 }
-
 
 .coach-links {
   display: grid;

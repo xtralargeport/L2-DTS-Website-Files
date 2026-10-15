@@ -899,7 +899,10 @@ footer {
   color: #067BC2;
   text-decoration: underline !important;
 }
-.coach-links a:hover { color: #3C3744; }
+
+.coach-links a:hover { 
+  color: #3C3744;
+}
 
 @media (max-width: 56rem) {
   .coach-row { grid-template-columns: 1fr; padding: 0 1rem; }
