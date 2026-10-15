@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+        <!--Page Info (Favicon, Stylesheet, Title etc)-->
+        <link rel="icon" type="image/x-icon" href="Images/logo.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Home Page for Pitch & Pavilion Cricket Website">
+	    <meta name="keywords" content="Pitch & Pavilion, Cricket, Sports, Batting, Bowling">
+        <link rel="stylesheet" href="stylesheet.css">
+        <title>Pitch & Pavilion - Practicing Tips</title>
+    </head>
+    <body>
+        <header>
+            <!--NavBar-->
+            <nav>
+                <ul class="nav-left">
+                    <!-- Logo Top Left + Link-->
+                    <li class="nav-bar-logo">
+                        <a href="index.html"><img src="Images/logo.png" alt="Logo Image"></a>
+                    </li>
+                </ul>
+                <ul class="nav-right">
+                    <!-- Menu Buttons-->
+                    <li><a href="javascript:void(0)" onclick="openNav()"><div class="menu-icon">&#9776;</div></a></li>
+                    <li><a href="javascript:void(0)" onclick="openCart()"><div class="cart-icon">&#128722;</div></a></li>
+                </ul>
+            </nav>
+            <div id="main">
+                <!-- Close Icon in Menu Sidenav-->
+                <div id="mySidenav" class="sidenav">
+                    <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+                        <!-- Sidenav Links -->
+                        <a href="index.html"><h1>Home</h1></a>
+                        <a href="rules.html"><h1>Rules</h1></a>
+                        <a href="gear.html"><h1>Gear</h1></a>
+                        <a href="wheretoplay.html"><h1>Where to Play</h1></a>
+                        <a href="coaching.html"><h1>Coaching</h1></a>
+                        <a href="practicingtips.html"><h1>Practicing Tips</h1></a>
+                        <a href="contacts.html"><h1>Contact Us</h1></a>
+                    </div>
+                    <!-- Close Icon in Cart Sidenav-->
+                    <div id="mySideNavCart" class="sidenav">
+                        <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeCart()">&times;</a></div>
+                        <h1 class="cart-title">Your Cart</h1>
+                        <!-- Cart items get injected here by JS -->
+                        <div id="cartItems" class="cart-items"></div>
+                        <div class="cart-footer">
+                            <p class="cart-total">Total: <span id="cartTotal">$0.00</span></p>
+                            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+                        </div>
+                    </div>                                                     
+                </div>
+                <script>
+                    function openNav() {
+                        document.getElementById("mySidenav").style.width = "15.625rem";
+                        document.getElementById("main").style.marginRight = "15.625rem";
+                    }
+
+                    function closeNav() {
+                        document.getElementById("mySidenav").style.width = "0";
+                        document.getElementById("main").style.marginRight = "0";
+                    }
+                            
+                    function openCart() {
+                        document.getElementById("mySideNavCart").style.width = "15.625rem";
+                        document.getElementById("main").style.marginRight = "15.625rem";
+                    }
+
+                    function closeCart() {
+                        document.getElementById("mySideNavCart").style.width = "0";
+                        document.getElementById("main").style.marginRight = "0";
+                    }
+
+                    let cart = [];
+
+                    function addToCart(name, price, image = "") {
+                        const existing = cart.find(item => item.name === name);
+                        if (existing) {
+                            existing.qty++;
+                        } else {
+                            cart.push({ name, price, qty: 1, image });
+                        }
+                        renderCart();
+                        openCart();
+                    }
+
+                    function removeFromCart(index) {
+                        cart.splice(index, 1);
+                        renderCart();
+                    }
+
+                    function changeQty(index, delta) {
+                        cart[index].qty += delta;
+                        if (cart[index].qty <= 0) {
+                            cart.splice(index, 1);
+                        }
+                        renderCart();
+                    }
+
+                    function renderCart() {
+                        const cartItemsDiv = document.getElementById("cartItems");
+                        const cartTotalSpan = document.getElementById("cartTotal");
+
+                        if (cart.length === 0) {
+                            cartItemsDiv.innerHTML = `<p class="cart-empty">Your cart is empty.</p>`;
+                            cartTotalSpan.textContent = "$0.00";
+                            return;
+                        }
+
+                        let html = "";
+                        let total = 0;
+
+                        cart.forEach((item, index) => {
+                            const lineTotal = item.price * item.qty;
+                            total += lineTotal;
+
+                            html += `
+                                <div class="cart-item">
+                                    ${item.image ? `<img src="${item.image}" alt="${item.name}" class="cart-item-img">` : ""}
+                                    <div class="cart-item-info">
+                                        <p class="cart-item-name">${item.name}</p>
+                                        <p class="cart-item-price">$${item.price.toFixed(2)}</p>
+                                        <div class="cart-qty-controls">
+                                            <button onclick="changeQty(${index}, -1)">&minus;</button>
+                                            <span>${item.qty}</span>
+                                            <button onclick="changeQty(${index}, 1)">&plus;</button>
+                                        </div>
+                                    </div>
+                                    <button class="cart-remove-btn" onclick="removeFromCart(${index})">&times;</button>
+                                </div>
+                            `;
+                        });
+
+                        cartItemsDiv.innerHTML = html;
+                        cartTotalSpan.textContent = `$${total.toFixed(2)}`;
+                    }
+
+                    function checkout() {
+                        if (cart.length === 0) {
+                            alert("Your cart is empty!");
+                            return;
+                        }
+                        alert("Proceeding to checkout — total: " + document.getElementById("cartTotal").textContent);
+                    }
+                </script>
+            </div>
+        </header>
+        <main class="tips-page">
+
+            <div class="tips-intro">
+                <h1>Practicing Tips</h1>
+                <p>To elevate your cricket skills, practice must transition from mindless repetition to deliberate, match-realistic training. When batting in the nets, avoid treating it as a casual hitting session; instead, set specific field restrictions or a target score to simulate real-game pressure. For bowlers, consistency is built by targeting a specific marker on the pitch—such as a piece of chalk or a cone—to master line and length, while consciously practicing variations like slower balls or yorkers in dedicated blocks. Fielders should prioritize high-intensity, short-duration drills that mimic sharp reflexes, diving, and throwing from the boundary on the run. Across all disciplines, incorporating video analysis is invaluable, as reviewing your footwork, release point, or catching technique in slow motion bridges the gap between what a movement feels like and what is actually happening. Ultimately, the most effective practice mimics the physical and mental intensity of a weekend match, ensuring that your skills hold up when it matters most.</p>
+                <h2>Here are some links to content creators/coaches/websites to help give you free tips on all things cricket</h2>
+            </div>
+
+            <div class="tips-carousel">
+                <div class="carousel-arrows">
+                    <button type="button" class="arrow-btn prev" id="tipsPrev" aria-label="Previous links"></button>
+                    <button type="button" class="arrow-btn next" id="tipsNext" aria-label="Next links"></button>
+                </div>
+
+                <div class="product-track" id="tipsTrack">
+                    <div class="product-card tip-card">
+                        <div class="tip-img"><img class="tip-photo" src="Images/ab-de-villiers.jpg" alt="AB de Villiers"></div>
+                        <p class="tip-name"><br>AB De Villiers</p>
+                        <a class="tip-link" href="https://www.instagram.com/abdevilliers17?utm_source=ig_web_button_share_sheet&psln=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">Link</a>
+                    </div>
+
+                    <div class="product-card tip-card">
+                        <div class="tip-img"><img src="Images/coachcricxi.jpg" alt="CoachCricXI logo"></div>
+                        <p class="tip-name"><br>CoachCricXI</p>
+                        <a class="tip-link" href="https://www.coachcricxi.com/" target="_blank" rel="noopener">Link</a>
+                    </div>
+
+                    <div class="product-card tip-card">
+                        <div class="tip-img"><img src="Images/sportplan.jpg" alt="Sportplan logo"></div>
+                        <p class="tip-name">Sportplan</p>
+                        <a class="tip-link" href="https://www.sportplan.com/" target="_blank" rel="noopener">Link</a>
+                    </div>
+
+                    <div class="product-card tip-card">
+                        <div class="tip-img"><img src="Images/nzc.jpg" alt="NZC logo"></div>
+                        <p class="tip-name tip-name-small">NZC Coaching Centre</p>
+                        <a class="tip-link" href="https://play.nzc.nz/coaching-courses" target="_blank" rel="noopener">Link</a>
+                    </div>
+
+                    <div class="product-card tip-card">
+                        <div class="tip-img"><img src="Images/cricket-mentoring.jpg" alt="cricketmentoring logo"></div>
+                        <p class="tip-name">cricketmentoring</p>
+                        <a class="tip-link" href="https://www.cricketmentoring.com/" target="_blank" rel="noopener">Link</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script>
+            (function () {
+                const track = document.getElementById("tipsTrack");
+
+                function step(direction) {
+                    const card = track.querySelector(".product-card");
+                    if (!card) return;
+                    const gap = parseFloat(getComputedStyle(track).columnGap) || 16;
+                    track.scrollBy({ left: direction * (card.offsetWidth + gap), behavior: "smooth" });
+                }
+
+                document.getElementById("tipsPrev").addEventListener("click", function () { step(-1); });
+                document.getElementById("tipsNext").addEventListener("click", function () { step(1); });
+            })();
+            renderCart();
+        </script>
+        <footer>
+            <div class="footer">
+                <div class="footer-column">
+                    <h2>Contacts</h2>
+                    <p>
+                        If you have any thoughts or questions for us, contact us here!
+                    </p>
+                    <p>
+                        Phone: +64 020 4186 3681<br>Email: 23031@lbc.school.nz
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h2>TOS</h2>
+                    <p>
+                        By using this site, you agree to our forms. All content &copy; 2026 Pitch & Pavilion. 
+                        Provided "as-is" without warranties
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h2>Privacy</h2>
+                    <p>
+                        &copy; 2026 Pitch & Pavilion. Provided "as-is". We respect your privacy and never sell your data.
+                    </p>
+                </div>
+                <div class="footer-column footer-page-section">
+                    <h2>Pages</h2>
+                    <div class="footer-page-links">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="gear.html">Gear</a></li>
+                            <li><a href="coaching.html">Coaching</a></li>
+                            <li><a href="contacts.html">Contact Us</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="rules.html">Rules</a></li>
+                            <li><a href="wheretoplay.html">Where to Play</a></li>
+                            <li><a href="practicingtips.html">Practicing Tips</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Pitch & Pavilion. All rights reserved.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

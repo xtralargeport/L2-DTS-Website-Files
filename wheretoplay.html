@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+        <!--Page Info (Favicon, Stylesheet, Title etc)-->
+        <link rel="icon" type="image/x-icon" href="Images/logo.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Home Page for Pitch & Pavilion Cricket Website">
+	    <meta name="keywords" content="Pitch & Pavilion, Cricket, Sports, Batting, Bowling">
+        <link rel="stylesheet" href="stylesheet.css">
+        <title>Pitch & Pavilion - Where to Play</title>
+    </head>
+    <body>
+        <header>
+            <!--NavBar-->
+            <nav>
+                <ul class="nav-left">
+                    <!-- Logo Top Left + Link-->
+                    <li class="nav-bar-logo">
+                        <a href="index.html"><img src="Images/logo.png" alt="Logo Image"></a>
+                    </li>
+                </ul>
+                <ul class="nav-right">
+                    <!-- Menu Buttons-->
+                    <li><a href="javascript:void(0)" onclick="openNav()"><div class="menu-icon">&#9776;</div></a></li>
+                    <li><a href="javascript:void(0)" onclick="openCart()"><div class="cart-icon">&#128722;</div></a></li>
+                </ul>
+            </nav>
+            <div id="main">
+                <!-- Close Icon in Menu Sidenav-->
+                <div id="mySidenav" class="sidenav">
+                    <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+                        <!-- Sidenav Links -->
+                        <a href="index.html"><h1>Home</h1></a>
+                        <a href="rules.html"><h1>Rules</h1></a>
+                        <a href="gear.html"><h1>Gear</h1></a>
+                        <a href="wheretoplay.html"><h1>Where to Play</h1></a>
+                        <a href="coaching.html"><h1>Coaching</h1></a>
+                        <a href="practicingtips.html"><h1>Practicing Tips</h1></a>
+                        <a href="contacts.html"><h1>Contact Us</h1></a>
+                    </div>
+                    <!-- Close Icon in Cart Sidenav-->
+                    <div id="mySideNavCart" class="sidenav">
+                        <div class="closeIcon"><a href="javascript:void(0)" class="closebtn" onclick="closeCart()">&times;</a></div>
+                        <h1 class="cart-title">Your Cart</h1>
+                        <!-- Cart items get injected here by JS -->
+                        <div id="cartItems" class="cart-items"></div>
+                        <div class="cart-footer">
+                            <p class="cart-total">Total: <span id="cartTotal">$0.00</span></p>
+                            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+                        </div>
+                    </div>                                                     
+                </div>
+                <script>
+                    function openNav() {
+                        document.getElementById("mySidenav").style.width = "15.625rem";
+                        document.getElementById("main").style.marginRight = "15.625rem";
+                    }
+
+                    function closeNav() {
+                        document.getElementById("mySidenav").style.width = "0";
+                        document.getElementById("main").style.marginRight = "0";
+                    }
+                            
+                    function openCart() {
+                        document.getElementById("mySideNavCart").style.width = "15.625rem";
+                        document.getElementById("main").style.marginRight = "15.625rem";
+                    }
+
+                    function closeCart() {
+                        document.getElementById("mySideNavCart").style.width = "0";
+                        document.getElementById("main").style.marginRight = "0";
+                    }
+
+                    let cart = [];
+
+                    function addToCart(name, price, image = "") {
+                        const existing = cart.find(item => item.name === name);
+                        if (existing) {
+                            existing.qty++;
+                        } else {
+                            cart.push({ name, price, qty: 1, image });
+                        }
+                        renderCart();
+                        openCart();
+                    }
+
+                    function removeFromCart(index) {
+                        cart.splice(index, 1);
+                        renderCart();
+                    }
+
+                    function changeQty(index, delta) {
+                        cart[index].qty += delta;
+                        if (cart[index].qty <= 0) {
+                            cart.splice(index, 1);
+                        }
+                        renderCart();
+                    }
+
+                    function renderCart() {
+                        const cartItemsDiv = document.getElementById("cartItems");
+                        const cartTotalSpan = document.getElementById("cartTotal");
+
+                        if (cart.length === 0) {
+                            cartItemsDiv.innerHTML = `<p class="cart-empty">Your cart is empty.</p>`;
+                            cartTotalSpan.textContent = "$0.00";
+                            return;
+                        }
+
+                        let html = "";
+                        let total = 0;
+
+                        cart.forEach((item, index) => {
+                            const lineTotal = item.price * item.qty;
+                            total += lineTotal;
+
+                            html += `
+                                <div class="cart-item">
+                                    ${item.image ? `<img src="${item.image}" alt="${item.name}" class="cart-item-img">` : ""}
+                                    <div class="cart-item-info">
+                                        <p class="cart-item-name">${item.name}</p>
+                                        <p class="cart-item-price">$${item.price.toFixed(2)}</p>
+                                        <div class="cart-qty-controls">
+                                            <button onclick="changeQty(${index}, -1)">&minus;</button>
+                                            <span>${item.qty}</span>
+                                            <button onclick="changeQty(${index}, 1)">&plus;</button>
+                                        </div>
+                                    </div>
+                                    <button class="cart-remove-btn" onclick="removeFromCart(${index})">&times;</button>
+                                </div>
+                            `;
+                        });
+
+                        cartItemsDiv.innerHTML = html;
+                        cartTotalSpan.textContent = `$${total.toFixed(2)}`;
+                    }
+
+                    function checkout() {
+                        if (cart.length === 0) {
+                            alert("Your cart is empty!");
+                            return;
+                        }
+                        alert("Proceeding to checkout — total: " + document.getElementById("cartTotal").textContent);
+                    }
+                </script>
+            </div>
+        </header>
+        <main class="wtp-page">
+
+            <!-- Banner with title -->
+            <div class="wtp-hero">
+                <img src="Images/wtp-background.jpg" alt="background image">
+                <h1>Where to Play</h1>
+            </div>
+
+            <div class="wtp-content">
+                <p class="wtp-intro">From grassroots community parks to world-class ovals, Aotearoa has a thriving cricket scene waiting for you. Whether you are looking for a competitive premier league, a social weekend bash with mates, or an introductory program for the kids, there is a club right around the corner.</p>
+
+                <div class="wtp-block">
+                    <h2>Find Your Local Association</h2>
+                    <p>Cricket in New Zealand is organized across six Major Associations. Pick your region below to find local clubs, tournament draws, and registrations in your backyard:</p>
+                    <ul class="assoc-list">
+                        <li><a class="assoc-link" href="https://www.ndcricket.co.nz" target="_blank" rel="noopener">Northern Districts</a>: Covering Northland, Counties Manukau, Waikato, Bay of Plenty, and Poverty Bay.</li>
+                        <li><a class="assoc-link" href="https://www.aucklandcricket.co.nz" target="_blank" rel="noopener">Auckland Cricket</a>: Serving the greater urban Auckland region across 16 massive community clubs.</li>
+                        <li><a class="assoc-link" href="https://www.cdcricket.co.nz" target="_blank" rel="noopener">Central Districts</a>: Spanning the lower North Island (Hawke's Bay, Taranaki, Manawatū) and upper South Island (Nelson, Marlborough).</li>
+                        <li><a class="assoc-link" href="https://www.cricketwellington.co.nz" target="_blank" rel="noopener">Cricket Wellington</a>: Serving the capital city and the surrounding Wellington region.</li>
+                        <li><a class="assoc-link" href="https://www.canterburycricket.co.nz" target="_blank" rel="noopener">Canterbury Cricket</a>: From Christchurch metro down to South Canterbury, Mid Canterbury, and the West Coast.</li>
+                        <li><a class="assoc-link" href="https://www.otagocricket.co.nz" target="_blank" rel="noopener">Otago Cricket</a>: Managing the game across Otago, Southland, and North Otago.</li>
+                    </ul>
+                </div>
+
+                <div class="wtp-block">
+                    <h2>Programs for All Ages &amp; Stages</h2>
+                    <p class="program-title">🏏 Smash Play (Junior Cricket)</p>
+                    <p class="program-desc">Designed for the youngest cricket stars, Smash Play focuses on fast-paced, high-energy games that teach basic skills like hitting, catching, and throwing in a fun environment. Perfect for kids just stepping onto the grass.</p>
+                    <p class="program-title">🎒 Youth &amp; School Cricket</p>
+                    <p class="program-desc">New Zealand schools and clubs offer everything from mid-week T20 school leagues to highly competitive Saturday morning youth championships.</p>
+                    <p class="program-title">🏆 Senior Competitive &amp; Social</p>
+                    <p class="program-desc">Ready for the real deal? Join a club to play traditional two-day matches, standard one-dayers, or fast T20 leagues. If you are short on time, look out for local mid-week social corporate leagues or indoor cricket centers near you.</p>
+                </div>
+
+                <div class="wtp-block">
+                    <h2>How to Get Started</h2>
+                    <p>Ready to lace up your spikes? Follow these simple steps:</p>
+                    <p>Find a Club: Head to the official New Zealand Cricket (NZC) Community Hub or use the PlayHQ platform to search for teams by postcode.</p>
+                    <p>Register Online: Club registrations generally open ahead of the summer season.</p>
+                    <p>Grab the Gear: Most clubs provide heavy team gear (pads, bats, helmets) for junior levels, so you only need the basics to start!</p>
+                </div>
+            </div>
+        </main>
+        <script>
+            renderCart();
+        </script>
+        <footer>
+            <div class="footer">
+                <div class="footer-column">
+                    <h2>Contacts</h2>
+                    <p>
+                        If you have any thoughts or questions for us, contact us here!
+                    </p>
+                    <p>
+                        Phone: +64 020 4186 3681<br>Email: 23031@lbc.school.nz
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h2>TOS</h2>
+                    <p>
+                        By using this site, you agree to our forms. All content &copy; 2026 Pitch & Pavilion. 
+                        Provided "as-is" without warranties
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h2>Privacy</h2>
+                    <p>
+                        &copy; 2026 Pitch & Pavilion. Provided "as-is". We respect your privacy and never sell your data.
+                    </p>
+                </div>
+                <div class="footer-column footer-page-section">
+                    <h2>Pages</h2>
+                    <div class="footer-page-links">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="gear.html">Gear</a></li>
+                            <li><a href="coaching.html">Coaching</a></li>
+                            <li><a href="contacts.html">Contact Us</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="rules.html">Rules</a></li>
+                            <li><a href="wheretoplay.html">Where to Play</a></li>
+                            <li><a href="practicingtips.html">Practicing Tips</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 Pitch & Pavilion. All rights reserved.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
