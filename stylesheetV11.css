@@ -1028,13 +1028,13 @@ footer {
     margin-bottom: 1.2rem;
 }
 
-.contact-page input: focus-within {
+.contact-page input:focus-within {
     outline: none;
     border-color: #067BC2;
     border-width: 0.2rem;
 }
 
-.contact-page textarea: focus-within {
+.contact-page textarea:focus-within {
     outline: none;
     border-color: #067BC2;
     border-width: 0.2rem;

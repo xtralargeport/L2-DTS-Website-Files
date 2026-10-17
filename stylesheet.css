@@ -993,9 +993,84 @@ footer {
   padding: 0.05rem 0.9rem;
   text-decoration: underline !important;
 }
+
 .tip-link:hover { 
     background: #a9d0ec; 
 }
+
+.contact-page {
+  margin-top: 4.4rem;
+  padding: 2rem 1.5rem 3rem;
+  background: #fff;
+  color: #000;
+}
+
+.contact-page input {
+    background-color: #3c3744;
+    width: 70%;
+    margin-left: 15%;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border-color: #067BC2;
+    margin-bottom: 1.2rem;
+}
+
+.contact-page textarea {
+    background-color: #3c3744;
+    width: 70%;
+    margin-left: 15%;
+    font-size: 1rem;
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border-color: #067BC2;
+    margin-bottom: 1.2rem;
+}
+
+.contact-page input:focus-within {
+    outline: none;
+    border-color: #067BC2;
+    border-width: 0.2rem;
+}
+
+.contact-page textarea:focus-within {
+    outline: none;
+    border-color: #067BC2;
+    border-width: 0.2rem;
+}
+
+.contact-page button {
+    background-color: #067BC2;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    border-color: #000;
+    display: flex;
+    text-align: center;
+    margin: auto;
+}
+
+button:hover {
+    background-color: #84bcda;
+    color: #000;
+    opacity: 80%;
+    cursor: pointer;
+}
+
+.contact-page h1 {
+    text-align: center;
+    font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+    margin: 0 0 2rem;
+}
+
+.contact-page p {
+    text-align: center;
+    font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+    margin: 0 0 2rem;
+}
+
 
 @media (max-width: 40rem) {
   .tips-intro { padding: 1.25rem 1rem 1.5rem; }
