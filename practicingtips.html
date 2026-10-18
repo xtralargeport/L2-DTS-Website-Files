@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-        <head>
+    <head>
         <!--Page Info (Favicon, Stylesheet, Title etc)-->
         <link rel="icon" type="image/x-icon" href="Images/logo.png">
         <meta charset="UTF-8">
@@ -51,7 +51,9 @@
                         </div>
                     </div>                                                     
                 </div>
+                <!-- Sidenav + Cart JS-->
                 <script>
+                    // Open + Close Menu Sidenav
                     function openNav() {
                         document.getElementById("mySidenav").style.width = "15.625rem";
                         document.getElementById("main").style.marginRight = "15.625rem";
@@ -61,7 +63,8 @@
                         document.getElementById("mySidenav").style.width = "0";
                         document.getElementById("main").style.marginRight = "0";
                     }
-                            
+                    
+                    // Open + Close Cart Sidenav
                     function openCart() {
                         document.getElementById("mySideNavCart").style.width = "15.625rem";
                         document.getElementById("main").style.marginRight = "15.625rem";
@@ -72,8 +75,10 @@
                         document.getElementById("main").style.marginRight = "0";
                     }
 
+                    // Cart Data (Starts Empty)
                     let cart = [];
 
+                    // Add Item to Cart (Increases Quantity if Already Exists)
                     function addToCart(name, price, image = "") {
                         const existing = cart.find(item => item.name === name);
                         if (existing) {
@@ -85,11 +90,13 @@
                         openCart();
                     }
 
+                    // Remove Item from Cart
                     function removeFromCart(index) {
                         cart.splice(index, 1);
                         renderCart();
                     }
 
+                    // Change Quantity of Item in Cart (Removes Item at 0 Quantity)
                     function changeQty(index, delta) {
                         cart[index].qty += delta;
                         if (cart[index].qty <= 0) {
@@ -98,10 +105,12 @@
                         renderCart();
                     }
 
+                    // Build Cart HTML and Calculate Total
                     function renderCart() {
                         const cartItemsDiv = document.getElementById("cartItems");
                         const cartTotalSpan = document.getElementById("cartTotal");
 
+                        // Empty Cart Message
                         if (cart.length === 0) {
                             cartItemsDiv.innerHTML = `<p class="cart-empty">Your cart is empty.</p>`;
                             cartTotalSpan.textContent = "$0.00";
@@ -111,6 +120,7 @@
                         let html = "";
                         let total = 0;
 
+                        // Loop through cart Items
                         cart.forEach((item, index) => {
                             const lineTotal = item.price * item.qty;
                             total += lineTotal;
@@ -136,6 +146,7 @@
                         cartTotalSpan.textContent = `$${total.toFixed(2)}`;
                     }
 
+                    // Checkout Button (Only a Placeholder)
                     function checkout() {
                         if (cart.length === 0) {
                             alert("Your cart is empty!");
@@ -146,45 +157,47 @@
                 </script>
             </div>
         </header>
+        <!-- Main Content -->
         <main class="tips-page">
-
+            <!-- Introduction-->
             <div class="tips-intro">
                 <h1>Practicing Tips</h1>
                 <p>To elevate your cricket skills, practice must transition from mindless repetition to deliberate, match-realistic training. When batting in the nets, avoid treating it as a casual hitting session; instead, set specific field restrictions or a target score to simulate real-game pressure. For bowlers, consistency is built by targeting a specific marker on the pitch—such as a piece of chalk or a cone—to master line and length, while consciously practicing variations like slower balls or yorkers in dedicated blocks. Fielders should prioritize high-intensity, short-duration drills that mimic sharp reflexes, diving, and throwing from the boundary on the run. Across all disciplines, incorporating video analysis is invaluable, as reviewing your footwork, release point, or catching technique in slow motion bridges the gap between what a movement feels like and what is actually happening. Ultimately, the most effective practice mimics the physical and mental intensity of a weekend match, ensuring that your skills hold up when it matters most.</p>
                 <h2>Here are some links to content creators/coaches/websites to help give you free tips on all things cricket</h2>
             </div>
-
+            <!-- Tips Carousel -->
             <div class="tips-carousel">
                 <div class="carousel-arrows">
                     <button type="button" class="arrow-btn prev" id="tipsPrev" aria-label="Previous links"></button>
                     <button type="button" class="arrow-btn next" id="tipsNext" aria-label="Next links"></button>
                 </div>
-
+                <!-- Tips Cards -->
                 <div class="product-track" id="tipsTrack">
+                    <!-- Tip Card -->
                     <div class="product-card tip-card">
                         <div class="tip-img"><img class="tip-photo" src="Images/ab-de-villiers.jpg" alt="AB de Villiers"></div>
                         <p class="tip-name"><br>AB De Villiers</p>
                         <a class="tip-link" href="https://www.instagram.com/abdevilliers17?utm_source=ig_web_button_share_sheet&psln=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">Link</a>
                     </div>
-
+                    <!-- Tip Card -->
                     <div class="product-card tip-card">
                         <div class="tip-img"><img src="Images/coachcricxi.jpg" alt="CoachCricXI logo"></div>
                         <p class="tip-name"><br>CoachCricXI</p>
                         <a class="tip-link" href="https://www.coachcricxi.com/" target="_blank" rel="noopener">Link</a>
                     </div>
-
+                    <!-- Tip Card -->
                     <div class="product-card tip-card">
                         <div class="tip-img"><img src="Images/sportplan.jpg" alt="Sportplan logo"></div>
                         <p class="tip-name">Sportplan</p>
                         <a class="tip-link" href="https://www.sportplan.com/" target="_blank" rel="noopener">Link</a>
                     </div>
-
+                    <!-- Tip Card -->
                     <div class="product-card tip-card">
                         <div class="tip-img"><img src="Images/nzc.jpg" alt="NZC logo"></div>
                         <p class="tip-name tip-name-small">NZC Coaching Centre</p>
                         <a class="tip-link" href="https://play.nzc.nz/coaching-courses" target="_blank" rel="noopener">Link</a>
                     </div>
-
+                    <!-- Tip Card -->
                     <div class="product-card tip-card">
                         <div class="tip-img"><img src="Images/cricket-mentoring.jpg" alt="cricketmentoring logo"></div>
                         <p class="tip-name">cricketmentoring</p>
@@ -194,23 +207,29 @@
             </div>
         </main>
         <script>
+            // Practicing Tips Carousel
             (function () {
+                // Page Element (Tips Card Row)
                 const track = document.getElementById("tipsTrack");
 
+                // Scroll the Tips Row by One Card (-1 = Left, 1 = Right)
                 function step(direction) {
                     const card = track.querySelector(".product-card");
                     if (!card) return;
                     const gap = parseFloat(getComputedStyle(track).columnGap) || 16;
                     track.scrollBy({ left: direction * (card.offsetWidth + gap), behavior: "smooth" });
                 }
-
+                // Carousel Arrow Buttons
                 document.getElementById("tipsPrev").addEventListener("click", function () { step(-1); });
                 document.getElementById("tipsNext").addEventListener("click", function () { step(1); });
             })();
+            // Render Cart on Page Load
             renderCart();
         </script>
+        <!--Footer-->
         <footer>
             <div class="footer">
+                <!--Contacts Column-->
                 <div class="footer-column">
                     <h2>Contacts</h2>
                     <p>
@@ -220,6 +239,7 @@
                         Phone: +64 020 4186 3681<br>Email: 23031@lbc.school.nz
                     </p>
                 </div>
+                <!--TOS Column-->
                 <div class="footer-column">
                     <h2>TOS</h2>
                     <p>
@@ -227,12 +247,14 @@
                         Provided "as-is" without warranties
                     </p>
                 </div>
+                <!--Privacy Column-->
                 <div class="footer-column">
                     <h2>Privacy</h2>
                     <p>
                         &copy; 2026 Pitch & Pavilion. Provided "as-is". We respect your privacy and never sell your data.
                     </p>
                 </div>
+                <!--Page Links Column-->
                 <div class="footer-column footer-page-section">
                     <h2>Pages</h2>
                     <div class="footer-page-links">
@@ -250,6 +272,7 @@
                     </div>
                 </div>
             </div>
+            <!--Copyright Bar-->
             <div class="footer-bottom">
                 <p>
                     &copy; 2026 Pitch & Pavilion. All rights reserved.

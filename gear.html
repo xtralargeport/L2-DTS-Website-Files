@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-        <head>
+    <head>
         <!--Page Info (Favicon, Stylesheet, Title etc)-->
         <link rel="icon" type="image/x-icon" href="Images/logo.png">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Home Page for Pitch & Pavilion Cricket Website">
 	    <meta name="keywords" content="Pitch & Pavilion, Cricket, Sports, Batting, Bowling">
-        <link rel="stylesheet" href="stylesheetV7.css">
+        <link rel="stylesheet" href="stylesheet.css">
         <title>Pitch & Pavilion - Gear</title>
     </head>
     <body>
@@ -49,9 +49,11 @@
                             <p class="cart-total">Total: <span id="cartTotal">$0.00</span></p>
                             <button class="checkout-btn" onclick="checkout()">Checkout</button>
                         </div>
-                    </div>                                                      
+                    </div>                                                     
                 </div>
+                <!-- Sidenav + Cart JS-->
                 <script>
+                    // Open + Close Menu Sidenav
                     function openNav() {
                         document.getElementById("mySidenav").style.width = "15.625rem";
                         document.getElementById("main").style.marginRight = "15.625rem";
@@ -61,7 +63,8 @@
                         document.getElementById("mySidenav").style.width = "0";
                         document.getElementById("main").style.marginRight = "0";
                     }
-                            
+                    
+                    // Open + Close Cart Sidenav
                     function openCart() {
                         document.getElementById("mySideNavCart").style.width = "15.625rem";
                         document.getElementById("main").style.marginRight = "15.625rem";
@@ -72,8 +75,10 @@
                         document.getElementById("main").style.marginRight = "0";
                     }
 
+                    // Cart Data (Starts Empty)
                     let cart = [];
 
+                    // Add Item to Cart (Increases Quantity if Already Exists)
                     function addToCart(name, price, image = "") {
                         const existing = cart.find(item => item.name === name);
                         if (existing) {
@@ -85,11 +90,13 @@
                         openCart();
                     }
 
+                    // Remove Item from Cart
                     function removeFromCart(index) {
                         cart.splice(index, 1);
                         renderCart();
                     }
 
+                    // Change Quantity of Item in Cart (Removes Item at 0 Quantity)
                     function changeQty(index, delta) {
                         cart[index].qty += delta;
                         if (cart[index].qty <= 0) {
@@ -98,10 +105,12 @@
                         renderCart();
                     }
 
+                    // Build Cart HTML and Calculate Total
                     function renderCart() {
                         const cartItemsDiv = document.getElementById("cartItems");
                         const cartTotalSpan = document.getElementById("cartTotal");
 
+                        // Empty Cart Message
                         if (cart.length === 0) {
                             cartItemsDiv.innerHTML = `<p class="cart-empty">Your cart is empty.</p>`;
                             cartTotalSpan.textContent = "$0.00";
@@ -111,6 +120,7 @@
                         let html = "";
                         let total = 0;
 
+                        // Loop through cart Items
                         cart.forEach((item, index) => {
                             const lineTotal = item.price * item.qty;
                             total += lineTotal;
@@ -136,6 +146,7 @@
                         cartTotalSpan.textContent = `$${total.toFixed(2)}`;
                     }
 
+                    // Checkout Button (Only a Placeholder)
                     function checkout() {
                         if (cart.length === 0) {
                             alert("Your cart is empty!");
@@ -146,9 +157,10 @@
                 </script>
             </div>
         </header>
+        <!-- Main Content -->
         <main class="gear-page">
             <h1>Gear</h1>
-
+            <!-- Gear Intro Section: Text Left, Image Right -->
             <section class="gear-intro">
                 <div class="gear-text">
                     <p>Cricket gear is far more than just a uniform; it is a critical blend of traditional craftsmanship and advanced sports science designed to optimize performance. From the willow bat engineered for the perfect sweet spot to specialized spiked footwear that provides traction on turf pitches, every piece of equipment serves a distinct technical purpose. High-quality gear allows players to execute skills with precision, whether that means a batter timing a high-velocity cover drive, a bowler maintaining stability through a high-impact delivery stride, or a fielder confidently tracking a ball in the deep.</p>
@@ -156,12 +168,12 @@
                 </div>
                 <img class="gear-photo" src="Images/gear-batter.jpg" alt="A batter in a helmet and pads taking guard at the crease">
             </section>
-
+            <!-- Gear Shop Intro-->
             <section class="shop-intro">
                 <h2>Shop Gear</h2>
                 <p>When purchasing cricket gear, prioritizing safety, correct sizing, and your current playing level will ensure the best investment. For beginners and junior players, focusing on high-quality protective essentials—like a properly fitted helmet and impact-absorbing pads—should take precedence over expensive professional bats. It is often highly beneficial to visit a specialist cricket retailer in person to test the weight and pickup of a bat, as well as ensure protective guards fit snugly without restricting movement. Investing in the right gear from the start not only elevates your performance on the field but provides the essential peace of mind needed to play with total confidence.</p>
             </section>
-
+            <!-- Gear Shop Section: Tabs + Carousel -->
             <section class="gear-shop">
                 <div class="gear-tabs" role="tablist" aria-label="Gear categories">
                     <button type="button" class="gear-tab active" role="tab" aria-selected="true" data-category="bats">Bats</button>
@@ -170,7 +182,7 @@
                     <button type="button" class="gear-tab" role="tab" aria-selected="false" data-category="lower">Lower Half Gear</button>
                     <button type="button" class="gear-tab" role="tab" aria-selected="false" data-category="bowling">Bowling Gear</button>
                 </div>
-
+                <!--Gear Shop Carousel-->
                 <div class="gear-carousel">
                     <div class="carousel-arrows">
                         <button type="button" class="arrow-btn prev" id="prevBtn" aria-label="Previous products"></button>
@@ -181,7 +193,9 @@
             </section>
         </main>
         <script>
+            // Gear Products Data
             const gearProducts = {
+                // Bats Data
                 bats: [
                     { brand: "Kookaburra", name: "Prism 7.0",  price: 489.99, image: "Images/prism-7.jpg" },
                     { brand: "Kookaburra", name: "Kahuna PRO", price: 499.99, image: "Images/kahuna-pro.jpg" },
@@ -196,23 +210,32 @@
                     { brand: "GM", name: "Galaxy", price: 509.99, image: "Images/galaxy.jpg" },
                     { brand: "GM", name: "Rival", price: 519.99, image: "Images/rival.jpg" }
                 ],
+                // Helmets Data
                 helmets: [
                     { brand: "Masuri", name: "T-Line Steel Plus w/ Neck Guard", price: 199.99, image: "Images/vision-elite.jpg" },
                     { brand: "Masuri", name: "E-Line Steel Cloth w/ Neck Guard", price: 209.99, image: "Images/elite-pro.jpg" },
                     { brand: "Masuri", name: "T-Line Steel Plus w/ Neck Guard", price: 219.99, image: "Images/pro-elite.jpg" },
                     { brand: "Masuri", name: "Vision Pro", price: 229.99, image: "Images/vision-pro.jpg" }
                 ],
+                // Upper Half Gear Data
                 upper: [],
+                // Lower Half Gear Data
                 lower: [],
+                // Bowling Gear Data
                 bowling: []
             };
 
+            // Page Elements (Tabs + Carousel)
             const tabs = document.querySelectorAll(".gear-tab");
             const track = document.getElementById("productTrack");
+
+            // Current Category State (Default to Bats)
             let currentCategory = "bats";
 
+            // Show Products for Selected Category
             function showCategory(key) {
                 currentCategory = key;
+                // Highlight Active Tab and Remove Highlight from Others
                 tabs.forEach(function (t) {
                     const on = t.dataset.category === key;
                     t.classList.toggle("active", on);
@@ -220,9 +243,12 @@
                 });
 
                 const list = gearProducts[key];
+
+                // Empty Category Message
                 if (!list.length) {
                     track.innerHTML = '<p class="product-empty">Products coming soon.</p>';
                 } else {
+                    // Build Product Cards for Each Item in the Category
                     track.innerHTML = list.map(function (p, i) {
                         return '<div class="product-card">' +
                             '<p class="product-brand">' + p.brand + '</p>' +
@@ -232,13 +258,17 @@
                             '</div>';
                     }).join("");
                 }
+
+                // Reset Scroll Position to Start of Track
                 track.scrollTo({ left: 0, behavior: "auto" });
             }
 
+            // Switch Category on Tab Click
             tabs.forEach(function (t) {
                 t.addEventListener("click", function () { showCategory(t.dataset.category); });
             });
 
+            // Add to Cart Button (One click listener covers every card)
             track.addEventListener("click", function (e) {
                 const btn = e.target.closest(".add-btn");
                 if (!btn) return;
@@ -246,6 +276,7 @@
                 addToCart(p.brand + " " + p.name, p.price, p.image);
             });
 
+            // Scroll the Product Row by one Card (-1 = Left, 1 = Right)
             function scrollStep(direction) {
                 const card = track.querySelector(".product-card");
                 if (!card) return;
@@ -255,11 +286,14 @@
             document.getElementById("prevBtn").addEventListener("click", function () { scrollStep(-1); });
             document.getElementById("nextBtn").addEventListener("click", function () { scrollStep(1); });
 
+            // Show Bats + Render Cart on Page Load
             showCategory("bats");
             renderCart();
         </script>
+        <!--Footer-->
         <footer>
             <div class="footer">
+                <!--Contacts Column-->
                 <div class="footer-column">
                     <h2>Contacts</h2>
                     <p>
@@ -269,6 +303,7 @@
                         Phone: +64 020 4186 3681<br>Email: 23031@lbc.school.nz
                     </p>
                 </div>
+                <!--TOS Column-->
                 <div class="footer-column">
                     <h2>TOS</h2>
                     <p>
@@ -276,12 +311,14 @@
                         Provided "as-is" without warranties
                     </p>
                 </div>
+                <!--Privacy Column-->
                 <div class="footer-column">
                     <h2>Privacy</h2>
                     <p>
                         &copy; 2026 Pitch & Pavilion. Provided "as-is". We respect your privacy and never sell your data.
                     </p>
                 </div>
+                <!--Page Links Column-->
                 <div class="footer-column footer-page-section">
                     <h2>Pages</h2>
                     <div class="footer-page-links">
@@ -299,6 +336,7 @@
                     </div>
                 </div>
             </div>
+            <!--Copyright Bar-->
             <div class="footer-bottom">
                 <p>
                     &copy; 2026 Pitch & Pavilion. All rights reserved.

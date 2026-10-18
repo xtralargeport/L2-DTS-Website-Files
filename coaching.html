@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-        <head>
+    <head>
         <!--Page Info (Favicon, Stylesheet, Title etc)-->
         <link rel="icon" type="image/x-icon" href="Images/logo.png">
         <meta charset="UTF-8">
@@ -51,7 +51,9 @@
                         </div>
                     </div>                                                     
                 </div>
+                <!-- Sidenav + Cart JS-->
                 <script>
+                    // Open + Close Menu Sidenav
                     function openNav() {
                         document.getElementById("mySidenav").style.width = "15.625rem";
                         document.getElementById("main").style.marginRight = "15.625rem";
@@ -61,7 +63,8 @@
                         document.getElementById("mySidenav").style.width = "0";
                         document.getElementById("main").style.marginRight = "0";
                     }
-                            
+                    
+                    // Open + Close Cart Sidenav
                     function openCart() {
                         document.getElementById("mySideNavCart").style.width = "15.625rem";
                         document.getElementById("main").style.marginRight = "15.625rem";
@@ -72,8 +75,10 @@
                         document.getElementById("main").style.marginRight = "0";
                     }
 
+                    // Cart Data (Starts Empty)
                     let cart = [];
 
+                    // Add Item to Cart (Increases Quantity if Already Exists)
                     function addToCart(name, price, image = "") {
                         const existing = cart.find(item => item.name === name);
                         if (existing) {
@@ -85,11 +90,13 @@
                         openCart();
                     }
 
+                    // Remove Item from Cart
                     function removeFromCart(index) {
                         cart.splice(index, 1);
                         renderCart();
                     }
 
+                    // Change Quantity of Item in Cart (Removes Item at 0 Quantity)
                     function changeQty(index, delta) {
                         cart[index].qty += delta;
                         if (cart[index].qty <= 0) {
@@ -98,10 +105,12 @@
                         renderCart();
                     }
 
+                    // Build Cart HTML and Calculate Total
                     function renderCart() {
                         const cartItemsDiv = document.getElementById("cartItems");
                         const cartTotalSpan = document.getElementById("cartTotal");
 
+                        // Empty Cart Message
                         if (cart.length === 0) {
                             cartItemsDiv.innerHTML = `<p class="cart-empty">Your cart is empty.</p>`;
                             cartTotalSpan.textContent = "$0.00";
@@ -111,6 +120,7 @@
                         let html = "";
                         let total = 0;
 
+                        // Loop through cart Items
                         cart.forEach((item, index) => {
                             const lineTotal = item.price * item.qty;
                             total += lineTotal;
@@ -136,6 +146,7 @@
                         cartTotalSpan.textContent = `$${total.toFixed(2)}`;
                     }
 
+                    // Checkout Button (Only a Placeholder)
                     function checkout() {
                         if (cart.length === 0) {
                             alert("Your cart is empty!");
@@ -146,14 +157,15 @@
                 </script>
             </div>
         </header>
+        <!-- Main Content -->
         <main class="coaching-page">
             <h1>Coaching</h1>
-
             <!-- Row 1: text left, photo + links right -->
             <div class="coach-row">
                 <div class="coach-text coach-text-left">
                     <p>Cricket coaching is a dynamic blend of technical refinement, tactical strategy, and mental conditioning designed to elevate a player's game. At its core, effective coaching goes beyond merely perfecting a cover drive or mastering a seam position; it focuses on developing a player's situational awareness and decision-making under pressure. Modern coaches utilize video analysis and data metrics to dissect mechanics, but the true value lies in their ability to foster resilience, adapt to different formats—from the patience of Test matches to the high-octane environment of T20s—and build a cohesive team culture. Ultimately, cricket coaching empowers athletes to understand their own game, transforming raw talent into consistent, high-level performance on the field.</p>
                 </div>
+                <!--Row 1 Photo + Coaching Links-->
                 <div class="coach-media">
                     <img class="coach-photo coach-photo-wide" src="Images/coaching-team.jpg" alt="A coach talking to a group of young players in an indoor cricket net">
                     <div class="coach-links">
@@ -164,6 +176,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Row 2: text right, photo left -->
             <div class="coach-row">
                 <div class="coach-text coach-text-center">
                     <p>In New Zealand, finding quality cricket coaching is highly accessible through the structured network of New Zealand Cricket (NZC) and its six major domestic associations: Auckland Cricket, Northern Districts Cricket, Central Districts Cricket, Cricket Wellington, Canterbury Cricket, and Otago Cricket. For players of all ages and skill levels, the local cricket club network serves as the primary starting point, offering volunteer-led junior programs like Smash Play as well as specialized club coaches for senior divisions. For those seeking advanced, high-performance training, private academies—such as the NZC High Performance Centre in Lincoln—and independent indoor cricket centers across major cities provide specialized one-on-one sessions, video analysis, and school holiday clinics. Additionally, checking regional sports trusts or utilizing the official NZC Coach Finder tools online can quickly connect you with certified, vetted coaches in your specific area.</p>
@@ -174,11 +187,14 @@
                 </div>
             </div>
         </main>
+        <!-- JS for Cart Rendering-->
         <script>
             renderCart();
         </script>
+        <!--Footer-->
         <footer>
             <div class="footer">
+                <!--Contacts Column-->
                 <div class="footer-column">
                     <h2>Contacts</h2>
                     <p>
@@ -188,6 +204,7 @@
                         Phone: +64 020 4186 3681<br>Email: 23031@lbc.school.nz
                     </p>
                 </div>
+                <!--TOS Column-->
                 <div class="footer-column">
                     <h2>TOS</h2>
                     <p>
@@ -195,12 +212,14 @@
                         Provided "as-is" without warranties
                     </p>
                 </div>
+                <!--Privacy Column-->
                 <div class="footer-column">
                     <h2>Privacy</h2>
                     <p>
                         &copy; 2026 Pitch & Pavilion. Provided "as-is". We respect your privacy and never sell your data.
                     </p>
                 </div>
+                <!--Page Links Column-->
                 <div class="footer-column footer-page-section">
                     <h2>Pages</h2>
                     <div class="footer-page-links">
@@ -218,6 +237,7 @@
                     </div>
                 </div>
             </div>
+            <!--Copyright Bar-->
             <div class="footer-bottom">
                 <p>
                     &copy; 2026 Pitch & Pavilion. All rights reserved.

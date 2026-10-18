@@ -49,10 +49,11 @@
                             <p class="cart-total">Total: <span id="cartTotal">$0.00</span></p>
                             <button class="checkout-btn" onclick="checkout()">Checkout</button>
                         </div>
-                    </div>                                                      
+                    </div>                                                     
                 </div>
+                <!-- Sidenav + Cart JS-->
                 <script>
-                    <!-- JavaScript for opening and closing the sidenav-->
+                    // Open + Close Menu Sidenav
                     function openNav() {
                         document.getElementById("mySidenav").style.width = "15.625rem";
                         document.getElementById("main").style.marginRight = "15.625rem";
@@ -62,7 +63,8 @@
                         document.getElementById("mySidenav").style.width = "0";
                         document.getElementById("main").style.marginRight = "0";
                     }
-                            
+                    
+                    // Open + Close Cart Sidenav
                     function openCart() {
                         document.getElementById("mySideNavCart").style.width = "15.625rem";
                         document.getElementById("main").style.marginRight = "15.625rem";
@@ -73,9 +75,10 @@
                         document.getElementById("main").style.marginRight = "0";
                     }
 
-                    
+                    // Cart Data (Starts Empty)
                     let cart = [];
 
+                    // Add Item to Cart (Increases Quantity if Already Exists)
                     function addToCart(name, price, image = "") {
                         const existing = cart.find(item => item.name === name);
                         if (existing) {
@@ -87,11 +90,13 @@
                         openCart();
                     }
 
+                    // Remove Item from Cart
                     function removeFromCart(index) {
                         cart.splice(index, 1);
                         renderCart();
                     }
 
+                    // Change Quantity of Item in Cart (Removes Item at 0 Quantity)
                     function changeQty(index, delta) {
                         cart[index].qty += delta;
                         if (cart[index].qty <= 0) {
@@ -100,10 +105,12 @@
                         renderCart();
                     }
 
+                    // Build Cart HTML and Calculate Total
                     function renderCart() {
                         const cartItemsDiv = document.getElementById("cartItems");
                         const cartTotalSpan = document.getElementById("cartTotal");
 
+                        // Empty Cart Message
                         if (cart.length === 0) {
                             cartItemsDiv.innerHTML = `<p class="cart-empty">Your cart is empty.</p>`;
                             cartTotalSpan.textContent = "$0.00";
@@ -113,6 +120,7 @@
                         let html = "";
                         let total = 0;
 
+                        // Loop through cart Items
                         cart.forEach((item, index) => {
                             const lineTotal = item.price * item.qty;
                             total += lineTotal;
@@ -138,6 +146,7 @@
                         cartTotalSpan.textContent = `$${total.toFixed(2)}`;
                     }
 
+                    // Checkout Button (Only a Placeholder)
                     function checkout() {
                         if (cart.length === 0) {
                             alert("Your cart is empty!");
@@ -148,7 +157,9 @@
                 </script>
             </div>
         </header>
+        <!-- Main Content -->
         <div class="index-grid">
+            <!--Row 1: Text Left, Image Right -->
             <article>
                 <h1>
                     <br>Want to know more about Cricket?
@@ -160,6 +171,7 @@
                 </p>
                 <img class="stadium-image" src="Images/team.png" alt="Cricket Team Image">
             </article>
+            <!--Row 2: Image Left, Text Right -->
             <section>
                <img class="team-image" src="Images/stadium.png" alt="Cricket Stadium Image">
                 <h1>
@@ -173,8 +185,10 @@
                 </p>
             </section>
         </div>
+        <!--Footer-->
         <footer>
             <div class="footer">
+                <!--Contacts Column-->
                 <div class="footer-column">
                     <h2>Contacts</h2>
                     <p>
@@ -184,6 +198,7 @@
                         Phone: +64 020 4186 3681<br>Email: 23031@lbc.school.nz
                     </p>
                 </div>
+                <!--TOS Column-->
                 <div class="footer-column">
                     <h2>TOS</h2>
                     <p>
@@ -191,12 +206,14 @@
                         Provided "as-is" without warranties
                     </p>
                 </div>
+                <!--Privacy Column-->
                 <div class="footer-column">
                     <h2>Privacy</h2>
                     <p>
                         &copy; 2026 Pitch & Pavilion. Provided "as-is". We respect your privacy and never sell your data.
                     </p>
                 </div>
+                <!--Page Links Column-->
                 <div class="footer-column footer-page-section">
                     <h2>Pages</h2>
                     <div class="footer-page-links">
@@ -214,6 +231,7 @@
                     </div>
                 </div>
             </div>
+            <!--Copyright Bar-->
             <div class="footer-bottom">
                 <p>
                     &copy; 2026 Pitch & Pavilion. All rights reserved.

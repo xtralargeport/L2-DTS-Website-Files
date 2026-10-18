@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-        <head>
+    <head>
         <!--Page Info (Favicon, Stylesheet, Title etc)-->
         <link rel="icon" type="image/x-icon" href="Images/logo.png">
         <meta charset="UTF-8">
@@ -8,7 +8,7 @@
         <meta name="description" content="Home Page for Pitch & Pavilion Cricket Website">
 	    <meta name="keywords" content="Pitch & Pavilion, Cricket, Sports, Batting, Bowling">
         <link rel="stylesheet" href="stylesheet.css">
-        <title>Pitch & Pavilion - Where to Play</title>
+        <title>Pitch & Pavilion - Where To Play</title>
     </head>
     <body>
         <header>
@@ -51,7 +51,9 @@
                         </div>
                     </div>                                                     
                 </div>
+                <!-- Sidenav + Cart JS-->
                 <script>
+                    // Open + Close Menu Sidenav
                     function openNav() {
                         document.getElementById("mySidenav").style.width = "15.625rem";
                         document.getElementById("main").style.marginRight = "15.625rem";
@@ -61,7 +63,8 @@
                         document.getElementById("mySidenav").style.width = "0";
                         document.getElementById("main").style.marginRight = "0";
                     }
-                            
+                    
+                    // Open + Close Cart Sidenav
                     function openCart() {
                         document.getElementById("mySideNavCart").style.width = "15.625rem";
                         document.getElementById("main").style.marginRight = "15.625rem";
@@ -72,8 +75,10 @@
                         document.getElementById("main").style.marginRight = "0";
                     }
 
+                    // Cart Data (Starts Empty)
                     let cart = [];
 
+                    // Add Item to Cart (Increases Quantity if Already Exists)
                     function addToCart(name, price, image = "") {
                         const existing = cart.find(item => item.name === name);
                         if (existing) {
@@ -85,11 +90,13 @@
                         openCart();
                     }
 
+                    // Remove Item from Cart
                     function removeFromCart(index) {
                         cart.splice(index, 1);
                         renderCart();
                     }
 
+                    // Change Quantity of Item in Cart (Removes Item at 0 Quantity)
                     function changeQty(index, delta) {
                         cart[index].qty += delta;
                         if (cart[index].qty <= 0) {
@@ -98,10 +105,12 @@
                         renderCart();
                     }
 
+                    // Build Cart HTML and Calculate Total
                     function renderCart() {
                         const cartItemsDiv = document.getElementById("cartItems");
                         const cartTotalSpan = document.getElementById("cartTotal");
 
+                        // Empty Cart Message
                         if (cart.length === 0) {
                             cartItemsDiv.innerHTML = `<p class="cart-empty">Your cart is empty.</p>`;
                             cartTotalSpan.textContent = "$0.00";
@@ -111,6 +120,7 @@
                         let html = "";
                         let total = 0;
 
+                        // Loop through cart Items
                         cart.forEach((item, index) => {
                             const lineTotal = item.price * item.qty;
                             total += lineTotal;
@@ -136,6 +146,7 @@
                         cartTotalSpan.textContent = `$${total.toFixed(2)}`;
                     }
 
+                    // Checkout Button (Only a Placeholder)
                     function checkout() {
                         if (cart.length === 0) {
                             alert("Your cart is empty!");
@@ -153,10 +164,10 @@
                 <img src="Images/wtp-background.jpg" alt="background image">
                 <h1>Where to Play</h1>
             </div>
-
+            <!-- Content Introduction-->
             <div class="wtp-content">
                 <p class="wtp-intro">From grassroots community parks to world-class ovals, Aotearoa has a thriving cricket scene waiting for you. Whether you are looking for a competitive premier league, a social weekend bash with mates, or an introductory program for the kids, there is a club right around the corner.</p>
-
+                <!--Associate Links-->
                 <div class="wtp-block">
                     <h2>Find Your Local Association</h2>
                     <p>Cricket in New Zealand is organized across six Major Associations. Pick your region below to find local clubs, tournament draws, and registrations in your backyard:</p>
@@ -169,7 +180,7 @@
                         <li><a class="assoc-link" href="https://www.otagocricket.co.nz" target="_blank" rel="noopener">Otago Cricket</a>: Managing the game across Otago, Southland, and North Otago.</li>
                     </ul>
                 </div>
-
+                <!--Programs for All Ages & Stages-->
                 <div class="wtp-block">
                     <h2>Programs for All Ages &amp; Stages</h2>
                     <p class="program-title">🏏 Smash Play (Junior Cricket)</p>
@@ -179,7 +190,7 @@
                     <p class="program-title">🏆 Senior Competitive &amp; Social</p>
                     <p class="program-desc">Ready for the real deal? Join a club to play traditional two-day matches, standard one-dayers, or fast T20 leagues. If you are short on time, look out for local mid-week social corporate leagues or indoor cricket centers near you.</p>
                 </div>
-
+                <!--How to Get Started-->
                 <div class="wtp-block">
                     <h2>How to Get Started</h2>
                     <p>Ready to lace up your spikes? Follow these simple steps:</p>
@@ -190,10 +201,13 @@
             </div>
         </main>
         <script>
+            // Render Cart on Page Load
             renderCart();
         </script>
+        <!--Footer-->
         <footer>
             <div class="footer">
+                <!--Contacts Column-->
                 <div class="footer-column">
                     <h2>Contacts</h2>
                     <p>
@@ -203,6 +217,7 @@
                         Phone: +64 020 4186 3681<br>Email: 23031@lbc.school.nz
                     </p>
                 </div>
+                <!--TOS Column-->
                 <div class="footer-column">
                     <h2>TOS</h2>
                     <p>
@@ -210,12 +225,14 @@
                         Provided "as-is" without warranties
                     </p>
                 </div>
+                <!--Privacy Column-->
                 <div class="footer-column">
                     <h2>Privacy</h2>
                     <p>
                         &copy; 2026 Pitch & Pavilion. Provided "as-is". We respect your privacy and never sell your data.
                     </p>
                 </div>
+                <!--Page Links Column-->
                 <div class="footer-column footer-page-section">
                     <h2>Pages</h2>
                     <div class="footer-page-links">
@@ -233,6 +250,7 @@
                     </div>
                 </div>
             </div>
+            <!--Copyright Bar-->
             <div class="footer-bottom">
                 <p>
                     &copy; 2026 Pitch & Pavilion. All rights reserved.

@@ -1,4 +1,4 @@
-
+/* Fonts */
 @font-face {
   font-family: "Open Sauce(Bold)";
   src: url("Fonts/OpenSauceOne-Bold.ttf") format("truetype");
@@ -14,6 +14,7 @@
   src: url("Fonts/BricolageGrotesque-Medium.ttf") format("truetype");
 }
 
+/* Style for the heading fonts */
 h1 {
   font-family: "Open Sauce(Bold)";
 }
@@ -22,16 +23,19 @@ h2 {
   font-family: "Bricolage Grotesque";
 }
 
+/* Style for the paragraph font */
 p {
   font-family: "Open Sauce(Light)";
 }
 
+/* Reset default spacing on every element */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Style for the navbar */
 header nav {
   width: 100%;
   margin: 0;
@@ -47,6 +51,7 @@ header nav {
   align-items: center;
 }
 
+/* Style for the navbar lists */
 header nav ul {
   list-style: none;
   margin: 0;
@@ -63,6 +68,7 @@ header nav ul li.nav-bar-logo img {
   width: auto;
 }
 
+/* Style for the logo link */
 header nav ul li.nav-bar-logo a {
   display: inline-block;
   padding: 0.2rem 0;
@@ -71,10 +77,12 @@ header nav ul li.nav-bar-logo a {
   margin-top: 0;
 }
 
+/* Style for the logo link on hover */
 header nav ul li.nav-bar-logo a:hover{
   background-color: #302c36;
 }
 
+/* Style for the navbar buttons on the right */
 .nav-right {
   display: flex;
   justify-content: flex-end;
@@ -82,6 +90,7 @@ header nav ul li.nav-bar-logo a:hover{
   gap: 1rem;
 }
 
+/* Style for the menu button */
 .menu-icon {
   font-size: 2rem;
   color: #ffffff;
@@ -94,15 +103,18 @@ header nav ul li.nav-bar-logo a:hover{
   border-radius: 0.5rem;
 }
 
+/* Style for the menu button on hover */
 .menu-icon:hover {
   background-color: #84bcda;
   color: #000000;
 }
 
+/* Removes underline from all links */
 a {
   text-decoration: none !important;
 }
 
+/* Style for the cart button */
 .cart-icon {
   font-size: 2rem;
   color: #ffffff;
@@ -114,6 +126,7 @@ a {
   border-radius: 0.5rem;
 }
 
+/* Style for the cart button on hover */
 .cart-icon:hover {
   background-color: #84bcda;
   color: #000000;
@@ -165,6 +178,7 @@ a {
   padding: 1rem;
 }
 
+/* Style for the home page grid layout */
 .index-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -175,6 +189,7 @@ a {
   margin-top: 1.8rem;
 }
 
+/* Style for the home page articles and sections */
 article,
 section {
   margin: 0;
@@ -182,6 +197,7 @@ section {
   text-align: center;
 }
 
+/* Style for the home page images */
 .stadium-image,
 .team-image {
   display: flex; 
@@ -191,6 +207,7 @@ section {
   padding: 0;
 }
 
+/* Style for the home page headings */
 article h1,
 section h1 {
   font-size: 1.75vw;
@@ -199,6 +216,7 @@ section h1 {
   margin-top: 3rem;
 }
 
+/* Style for the home page paragraphs */
 article p,
 section p {
   font-size: 1.45vw;
@@ -208,6 +226,7 @@ section p {
   margin-top: 4.9rem;
 }
 
+/* Style for the footer */
 footer {
   background-color: #3C3744;
   color: #FFFFFF;
@@ -215,6 +234,7 @@ footer {
   width: 100%;
 }
 
+/* Style for the footer column layout */
 .footer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1.5fr;
@@ -224,22 +244,26 @@ footer {
   text-align: center;
 }
 
+/* Style for the footer column headings */
 .footer-column h2 {
   font-size: 1.1rem;
   margin: 0 0 1rem 0;
   text-decoration: underline;
 }
 
+/* Style for the footer column text */
 .footer-column p {
   font-size: 0.8rem;
   line-height: 1.5;
   margin: 0.5rem 0;
 }
 
+/* Style for the footer pages section */
 .footer-pages {
   text-align: center;
 }
 
+/* Style for the footer page links layout */
 .footer-page-links {
   display: flex;
   justify-content: center;
@@ -247,32 +271,38 @@ footer {
   text-align: left;
 }
 
+/* Style for the footer page link lists */
 .footer-page-links ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
+/* Style for the footer page link items */
 .footer-page-links li {
   margin-bottom: 0.6rem;
 }
 
+/* Style for the footer page links */
 .footer-page-links a {
   color: #FFFFFF;
   font-size: 0.8rem;
   font-family: "Open Sauce(Bold)";
 }
 
+/* Style for the footer page links on hover */
 .footer-page-links a:hover {
   color: #84bcda;
 }
 
+/* Style for the copyright bar at the bottom of the footer */
 .footer-bottom {
   text-align: center;
   margin-top: 2rem;
   padding-top: 0.75rem;
 }
 
+/* Style for the cart title */
 .cart-title {
   color: #FFFFFF;
   text-align: center;
@@ -280,12 +310,14 @@ footer {
   margin-bottom: 1rem;
 }
 
+/* Style for the cart items container */
 .cart-items {
   padding: 0 1rem;
   max-height: 60vh;
   overflow-y: auto;
 }
 
+/* Style for the empty cart message */
 .cart-empty {
   color: #FFFFFF;
   text-align: center;
@@ -293,6 +325,7 @@ footer {
   font-size: 0.9rem;
 }
 
+/* Style for a single cart item */
 .cart-item {
   display: flex;
   align-items: center;
@@ -303,6 +336,7 @@ footer {
   margin-bottom: 0.75rem;
 }
 
+/* Style for the cart item image */
 .cart-item-img {
   width: 3rem;
   height: 3rem;
@@ -310,28 +344,33 @@ footer {
   border-radius: 0.3rem;
 }
 
+/* Style for the cart item info */
 .cart-item-info {
   flex: 1;
 }
 
+/* Style for the cart item name */
 .cart-item-name {
   color: #FFFFFF;
   font-size: 0.85rem;
   font-family: "Open Sauce(Bold)";
 }
 
+/* Style for the cart item price */
 .cart-item-price {
   color: #84bcda;
   font-size: 0.8rem;
   margin-bottom: 0.3rem;
 }
 
+/* Style for the cart quantity controls */
 .cart-qty-controls {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
+/* Style for the cart quantity buttons */
 .cart-qty-controls button {
   background-color: #067BC2;
   color: #FFFFFF;
@@ -342,16 +381,19 @@ footer {
   cursor: pointer;
 }
 
+/* Style for the cart quantity buttons on hover */
 .cart-qty-controls button:hover {
   background-color: #84bcda;
   color: #000000;
 }
 
+/* Style for the cart quantity number */
 .cart-qty-controls span {
   color: #FFFFFF;
   font-size: 0.85rem;
 }
 
+/* Style for the cart remove button */
 .cart-remove-btn {
   background: none;
   border: none;
@@ -360,10 +402,12 @@ footer {
   cursor: pointer;
 }
 
+/* Style for the cart remove button on hover */
 .cart-remove-btn:hover {
   color: #ff6b6b;
 }
 
+/* Style for the cart total + checkout area */
 .cart-footer {
   position: absolute;
   bottom: 0;
@@ -373,6 +417,7 @@ footer {
   border-top: 0.1rem solid #FFFFFF;
 }
 
+/* Style for the cart total */
 .cart-total {
   color: #FFFFFF;
   text-align: center;
@@ -380,6 +425,7 @@ footer {
   font-size: 1rem;
 }
 
+/* Style for the checkout button */
 .checkout-btn {
   width: 100%;
   background-color: #067BC2;
@@ -391,11 +437,15 @@ footer {
   font-family: "Open Sauce(Bold)";
 }
 
+/* Style for the checkout button on hover */
 .checkout-btn:hover {
   background-color: #84bcda;
   color: #000000;
 }
 
+/* ---------- Rules page ---------- */
+
+/* Style for the rules page container */
 .rules-page {
   margin-top: 4.4rem;
   padding: 0 2rem 3rem;
@@ -403,6 +453,7 @@ footer {
   color: #000;
 }
 
+/* Style for the rules page jump links bar (sticks below the navbar) */
 .rules-jump {
   position: sticky;
   top: 4.4rem;
@@ -415,6 +466,8 @@ footer {
   margin: 0 -2rem 0.5rem;
   background: #fff;
 }
+
+/* Style for the rules page jump links */
 .rules-jump a {
     font-family: "Open Sauce(Bold)", sans-serif;
     font-size: 0.95rem;
@@ -424,35 +477,43 @@ footer {
     border-radius: 0.5rem;
     padding: 0.4rem 1.1rem;
 }
+
+/* Style for the rules page jump links on hover */
 .rules-jump a:hover { 
     background: #84bcda; 
     color: #000; 
 }
 
+/* Style for the rules page jump links when focused with the keyboard */
 .rules-jump a:focus-visible { 
     outline: 3px solid #3C3744; 
     outline-offset: 2px; 
 }
 
+/* Style for the rules page sections */
 .rules-page .rules-section { 
     padding: 0; 
 }
+
+/* Stops the sticky jump bar covering section headings when jumped to */
 #basics, #fielding, #nuances { 
     scroll-margin-top: 8.5rem; 
 }
 
+/* Style for the rules page headings */
 .rules-page h1 {
     font-size: clamp(1.8rem, 2.6vw, 2.4rem);
     margin: 1rem 0 1.25rem;
 }
 
-
+/* Style for the rules page paragraphs */
 .rules-page p {
     font-size: clamp(0.8rem, 0.95vw, 1rem);
     line-height: 1.4;
     margin: 0 0 0.35rem;
 }
 
+/* Style for the rules page sub headings */
 .rules-page h3 {
     font-family: "Open Sauce(Light)", sans-serif;
     font-weight: normal;
@@ -461,11 +522,13 @@ footer {
     margin: 0.9rem 0 0.35rem;
 }
 
+/* Style for the rules page bold sub titles */
 .rules-page h3.sub-title {
     font-family: "Open Sauce(Bold)", sans-serif;
     margin-top: 0;
 }
 
+/* Style for the underlined rules page terms */
 .rules-page .term { 
     text-decoration: underline;
 }
@@ -474,23 +537,28 @@ footer {
     text-decoration: underline; 
 }
 
+/* Style for the rules page images */
 .rules-page img { 
     display: block; 
     width: 100%; 
     height: auto; 
 }
 
+/* Style for the rules page three column grid */
 .rules-grid {
     display: grid;
     grid-template-columns: 1.1fr 1.2fr 0.9fr;
     gap: 1.5rem;
     align-items: start;
 }
+
+/* Style for the rules page side column */
 .rules-side { 
     display: grid; 
     gap: 1rem; 
 }
 
+/* Style for the rules page divider line */
 .rules-divider {
     border: 0;
     height: 3px;
@@ -498,6 +566,7 @@ footer {
     margin: 2.5rem 0 1.5rem;
 }
 
+/* Style for the rules page advanced rows (text + photos side by side) */
 .adv-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -506,6 +575,7 @@ footer {
     margin-bottom: 2rem;
 }
 
+/* Style for the rules page advanced photos */
 .rules-page .adv-photos { 
   display: grid; 
   gap: 1rem; 
@@ -513,6 +583,7 @@ footer {
   margin: 0 auto;
 }
 
+/* Style for the rules page fielding image */
 .rules-page .fielding-img { 
   margin-top: 0.25rem; 
   margin: 0.25rem auto 0;
@@ -523,18 +594,23 @@ footer {
     width: 100%;
 }
 
+/* ---------- Gear page ---------- */
+
+/* Style for the gear page container */
 .gear-page {
   padding-top: 2.5rem;
   background: #fff;
   color: #000;
 }
 
+/* Style for the gear page heading */
 .gear-page h1 {
   text-align: center;
   font-size: clamp(1.6rem, 2.2vw, 2.2rem);
   margin: 3rem 0 1.5rem;
 }
 
+/* Style for the gear page intro layout (text left, photo right) */
 .gear-intro {
   display: grid;
   grid-template-columns: 1.7fr 1fr;
@@ -543,6 +619,7 @@ footer {
   align-items: start;
 }
 
+/* Style for the gear page intro text */
 .gear-page .gear-text { 
     text-align: left; 
 }
@@ -553,6 +630,7 @@ footer {
   margin: 0 0 1.2rem;
 }
 
+/* Style for the gear page intro photo */
 .gear-page .gear-photo {
   display: block;
   width: 100%;
@@ -561,6 +639,7 @@ footer {
   margin: 0 auto;
 }
 
+/* Style for the gear page shop intro */
 .gear-page .shop-intro { 
     padding: 0 1rem 1.5rem;
 }
@@ -578,6 +657,7 @@ footer {
   margin: 0 auto;
 }
 
+/* Style for the gear category tabs bar */
 .gear-tabs {
   position: relative;
   z-index: 1;
@@ -586,6 +666,7 @@ footer {
   border-top: 2px solid #000;
 }
 
+/* Style for a gear category tab */
 .gear-tab {
   position: relative;
   font-family: "Open Sauce(Bold)";
@@ -599,17 +680,22 @@ footer {
   cursor: pointer;
 }
 
+/* Adds the missing right border on the last tab */
 .gear-tab:last-child { 
     border-right-width: 2px; 
 }
+
+/* Style for a gear category tab on hover */
 .gear-tab:hover { 
     background: #a3b07f; 
 }
 
+/* Style for the selected gear category tab */
 .gear-tab.active { 
     background: #aaffcc; 
 }
 
+/* Curved bottom under the selected tab */
 .gear-tab.active::after {
   content: "";
   position: absolute;
@@ -622,6 +708,8 @@ footer {
   border-top: 0;
   border-radius: 0 0 50% 50% / 0 0 100% 100%;
 }
+
+/* Small arrow pointing down from the selected tab */
 .gear-tab.active::before {
     content: "";
     position: absolute;
@@ -636,17 +724,21 @@ footer {
 }
 
 /* Carousel */
+
+/* Style for the gear carousel background */
 .gear-carousel {
   background: #8d9b6b;
   padding: 2.8rem 0.4rem 3rem;
 }
 
+/* Style for the carousel arrows row */
 .carousel-arrows {
   display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
 }
 
+/* Style for the carousel arrow buttons */
 .arrow-btn {
   display: grid;
   place-items: center;
@@ -658,10 +750,12 @@ footer {
   cursor: pointer;
 }
 
+/* Style for the carousel arrow buttons on hover */
 .arrow-btn:hover { 
     background: #84bcda; 
 }
 
+/* Draws the arrow shape inside the buttons */
 .arrow-btn::before {
   content: "";
   width: 0.9rem;
@@ -669,15 +763,19 @@ footer {
   border-left: 2px solid #1a3550;
   border-bottom: 2px solid #1a3550;
 }
+
+/* Rotates the arrow to point left (previous) */
 .arrow-btn.prev::before { 
     transform: translateX(0.15rem) rotate(45deg); 
 
 }
 
+/* Rotates the arrow to point right (next) */
 .arrow-btn.next::before { 
     transform: translateX(-0.15rem) rotate(-135deg); 
 }
 
+/* Style for the scrollable row of product cards */
 .product-track {
   display: flex;
   gap: 1rem;
@@ -687,10 +785,12 @@ footer {
   padding: 0.2rem;
 }
 
+/* Hides the scrollbar in Chrome/Safari */
 .product-track::-webkit-scrollbar { 
     display: none; 
 }
 
+/* Style for a product card (5 across on desktop) */
 .product-card {
   flex: 0 0 calc((100% - 4rem) / 5);   
   scroll-snap-align: start;
@@ -705,12 +805,14 @@ footer {
   text-align: center;
 }
 
+/* Style for the product card text */
 .gear-page .product-card p {
   font-family: "Open Sauce(Bold)";
   font-size: clamp(0.8rem, 1.1vw, 1.1rem);
   margin: 0;
 }
 
+/* Style for the product image box */
 .product-img {
   width: 100%;
   aspect-ratio: 3 / 4;
@@ -726,6 +828,7 @@ footer {
     object-fit: contain; 
 }
 
+/* Style for the add to cart button */
 .add-btn {
   margin-top: auto;
   font-family: "Open Sauce(Bold)";
@@ -738,10 +841,12 @@ footer {
   cursor: pointer;
 }
 
+/* Style for the add to cart button on hover */
 .add-btn:hover { 
     background: #a9d0ec; 
 }
 
+/* Style for the message shown when a category has no products */
 .gear-page .product-empty {
   flex: 1;
   text-align: center;
@@ -749,19 +854,23 @@ footer {
   padding: 2rem 0;
 }
 
+/* ---------- Where to Play page ---------- */
+
+/* Style for the where to play page container */
 .wtp-page {
   margin-top: 4.4rem;
   background: #fff;
   color: #000;
 }
 
-
+/* Style for the where to play hero banner */
 .wtp-hero {
   position: relative;
   height: clamp(12rem, 24vw, 22rem);
   overflow: hidden;
 }
 
+/* Style for the hero banner image */
 .wtp-hero img {
   display: block;
   width: 100%;
@@ -770,6 +879,7 @@ footer {
   object-position: center 30%;
 }
 
+/* Style for the title on top of the hero banner */
 .wtp-hero h1 {
   position: absolute;
   left: 2rem;
@@ -780,23 +890,26 @@ footer {
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 }
 
-
+/* Style for the where to play content area */
 .wtp-content {
   padding: 1.5rem 1.5rem 3rem;
   text-align: left;
 }
 
+/* Style for the where to play text */
 .wtp-page p,
 .wtp-page li {
   font-size: clamp(0.95rem, 1.1vw, 1.1rem);
   line-height: 1.45;
 }
 
+/* Style for the where to play intro paragraph */
 .wtp-intro {
   text-align: center;
   margin-bottom: 2rem;
 }
 
+/* Style for a where to play block */
 .wtp-block { 
     margin-bottom: 2rem; 
 }
@@ -806,31 +919,41 @@ footer {
   margin-bottom: 0.15rem;
 }
 
+/* Style for the association list */
 .assoc-list { 
     list-style: none; 
 }
 
+/* Adds a dash before each association */
 .assoc-list li::before { 
     content: " - "; 
 }
 
+/* Style for the association links */
 .wtp-page .assoc-link {
   color: #000;
   text-decoration: underline !important;
 }
 
+/* Style for the association links on hover */
 .wtp-page .assoc-link:hover { 
     color: #067BC2; 
 }
 
+/* Style for the program descriptions */
 .program-desc {
   padding-left: 0.4rem;
 
 }
+
+/* Adds a dash before each program description */
 .program-desc::before { 
     content: "- "; 
 }
 
+/* ---------- Coaching page ---------- */
+
+/* Style for the coaching page container */
 .coaching-page {
   margin-top: 4.4rem;
   padding-bottom: 3rem;
@@ -838,12 +961,14 @@ footer {
   color: #000;
 }
 
+/* Style for the coaching page heading */
 .coaching-page h1 {
   text-align: center;
   font-size: clamp(1.6rem, 2.2vw, 2.2rem);
   margin: 2rem 0 1.5rem;
 }
 
+/* Style for a coaching row (text + photo side by side) */
 .coach-row {
   display: grid;
   grid-template-columns: 1.05fr 1fr;
@@ -853,37 +978,45 @@ footer {
   align-items: start;
 }
 
+/* Style for the coaching text */
 .coaching-page .coach-text p {
   font-size: clamp(0.95rem, 1.1vw, 1.1rem);
   line-height: 1.35;
 }
 
+/* Style for the left aligned coaching text (row 1) */
 .coach-text-left   { 
     padding: 1.5rem 1.5rem 0 2rem; text-align: left; 
 }
 
+/* Style for the centered coaching text (row 2) */
 .coach-text-center { 
     padding: 0 1rem; text-align: center; 
 }
 
-
+/* Style for the coaching photo + links column */
 .coach-media { 
   text-align: center;
 }
 
+/* Style for the coaching photos */
 .coaching-page .coach-photo {
   display: block;
   height: auto;
   margin: 0 auto;
 }
+
+/* Style for the wide coaching photo (row 1) */
 .coaching-page .coach-photo-wide { 
     width: 68%; 
 }
 
+/* Style for the tall coaching photo (row 2) */
 .coaching-page .coach-photo-tall {
     width: 45%; 
 }
 
+/* Style for the coaching links grid */
 .coach-links {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -893,6 +1026,7 @@ footer {
   text-align: left;
 }
 
+/* Style for the coaching links */
 .coach-links a {
   font-family: "Open Sauce(Bold)";
   font-size: clamp(0.95rem, 1.1vw, 1.1rem);
@@ -900,16 +1034,21 @@ footer {
   text-decoration: underline !important;
 }
 
+/* Style for the coaching links on hover */
 .coach-links a:hover { 
     color: #3C3744; 
 }
 
+/* ---------- Practicing Tips page ---------- */
+
+/* Style for the practicing tips page container */
 .tips-page {
   margin-top: 4.4rem;
   background: #fff;
   color: #000;
 }
 
+/* Style for the practicing tips intro */
 .tips-intro {
   padding: 1.5rem 1.5rem 1.75rem;
   text-align: center;
@@ -931,6 +1070,7 @@ footer {
   margin: 0;
 }
 
+/* Style for the practicing tips carousel background */
 .tips-carousel {
   background: #8d9b6b;
   padding: 0.9rem 0.9rem 1.75rem;
@@ -953,6 +1093,7 @@ footer {
   gap: 0.75rem;
 }
 
+/* Style for the tip card image box */
 .tip-img {
   width: 100%;
   height: clamp(6rem, 11vw, 9rem);
@@ -968,10 +1109,12 @@ footer {
   object-fit: contain;
 }
 
+/* Style for tip card photos (rounded corners) */
 .tip-img .tip-photo { 
     border-radius: 1rem; 
 }
 
+/* Style for the tip card name */
 .tips-page .tip-name {
   font-family: "Open Sauce(Bold)";
   font-size: clamp(0.9rem, 1.6vw, 1.4rem);
@@ -980,8 +1123,10 @@ footer {
   word-break: break-word;
 }
 
+/* Smaller tip card name for long titles */
 .tips-page .tip-name-small { font-size: clamp(0.8rem, 1.25vw, 1.1rem); }
 
+/* Style for the tip card link button */
 .tip-link {
   margin-top: auto;
   font-family: "Open Sauce(Bold)";
@@ -994,10 +1139,14 @@ footer {
   text-decoration: underline !important;
 }
 
+/* Style for the tip card link button on hover */
 .tip-link:hover { 
     background: #a9d0ec; 
 }
 
+/* ---------- Contact page ---------- */
+
+/* Style for the contact page container */
 .contact-page {
   margin-top: 4.4rem;
   padding: 2rem 1.5rem 3rem;
@@ -1005,6 +1154,7 @@ footer {
   color: #000;
 }
 
+/* Style for the contact form inputs */
 .contact-page input {
     background-color: #3c3744;
     width: 70%;
@@ -1016,6 +1166,7 @@ footer {
     margin-bottom: 1.2rem;
 }
 
+/* Style for the contact form message box */
 .contact-page textarea {
     background-color: #3c3744;
     width: 70%;
@@ -1028,18 +1179,21 @@ footer {
     margin-bottom: 1.2rem;
 }
 
+/* Style for the contact form inputs when selected */
 .contact-page input:focus-within {
     outline: none;
     border-color: #067BC2;
     border-width: 0.2rem;
 }
 
+/* Style for the contact form message box when selected */
 .contact-page textarea:focus-within {
     outline: none;
     border-color: #067BC2;
     border-width: 0.2rem;
 }
 
+/* Style for the contact form submit button */
 .contact-page button {
     background-color: #067BC2;
     color: #fff;
@@ -1052,6 +1206,7 @@ footer {
     margin: auto;
 }
 
+/* Style for all buttons on hover */
 button:hover {
     background-color: #84bcda;
     color: #000;
@@ -1059,25 +1214,30 @@ button:hover {
     cursor: pointer;
 }
 
+/* Style for the contact page heading */
 .contact-page h1 {
     text-align: center;
     font-size: clamp(1.6rem, 2.2vw, 2.2rem);
     margin: 0 0 2rem;
 }
 
+/* Style for the contact page paragraph */
 .contact-page p {
     text-align: center;
     font-size: clamp(1.1rem, 1.5vw, 1.5rem);
     margin: 0 0 2rem;
 }
 
+/* ---------- Mobile / small screen styles ---------- */
 
+/* Practicing tips page on small screens */
 @media (max-width: 40rem) {
   .tips-intro { padding: 1.25rem 1rem 1.5rem; }
   .tips-intro p { font-size: 0.95rem; }
   .tips-page .tip-card { border-radius: 4rem; }
 }
 
+/* Coaching page on medium screens (rows stack into one column) */
 @media (max-width: 56rem) {
   .coach-row { grid-template-columns: 1fr; padding: 0 1rem; }
   .coach-text-left,
@@ -1087,16 +1247,19 @@ button:hover {
   .coach-links { width: 100%; gap: 1.5rem 1rem; }
 }
 
+/* Where to play page on small screens */
 @media (max-width: 40rem) {
   .wtp-hero h1 { left: 1rem; }
   .wtp-content { padding: 1.25rem 1rem 2.5rem; }
 }
 
+/* Gear page on medium screens (intro stacks, 2 product cards across) */
 @media (max-width: 56rem) {
   .gear-intro { grid-template-columns: 1fr; padding: 0 1rem; }
   .product-card { flex-basis: calc((100% - 1rem) / 2); }
 }
 
+/* Gear page on small screens (3 tabs across, curved tab bottom hidden) */
 @media (max-width: 40rem) {
   .gear-tabs { grid-template-columns: repeat(3, 1fr); }
   .gear-tab.active::after,
@@ -1104,6 +1267,7 @@ button:hover {
   .gear-carousel { padding-top: 1.5rem; }
 }
 
+/* Rules page on medium screens (grids stack into one column) */
 @media (max-width: 56rem) {
     .rules-page { 
         padding: 0 1rem 2rem; 
@@ -1121,7 +1285,20 @@ button:hover {
     }
 }
 
+/* Sidenav on short screens (e.g. phones turned sideways) */
 @media screen and (max-height: 450px) {
   .sidenav{padding-top: 0.938rem;}
   .sidenav a{font-size: 1.125rem;}
+}
+
+/* Home page, navbar buttons + footer on tablets and phones */
+@media (max-width: 56rem) {
+  .index-grid { grid-template-columns: 1fr; }
+  .index-grid article h1,
+  .index-grid section h1 { font-size: 1.4rem; }
+  .index-grid article p,
+  .index-grid section p { font-size: 1rem; margin: 1.5rem 1rem 2.5rem; }
+  header nav ul.nav-left { width: auto; }
+  header nav ul.nav-right { width: auto; margin-left: auto; }
+  .footer { grid-template-columns: 1fr; gap: 1.5rem; }
 }

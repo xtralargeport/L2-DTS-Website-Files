@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-        <head>
+    <head>
         <!--Page Info (Favicon, Stylesheet, Title etc)-->
         <link rel="icon" type="image/x-icon" href="Images/logo.png">
         <meta charset="UTF-8">
@@ -51,7 +51,9 @@
                         </div>
                     </div>                                                     
                 </div>
+                <!-- Sidenav + Cart JS-->
                 <script>
+                    // Open + Close Menu Sidenav
                     function openNav() {
                         document.getElementById("mySidenav").style.width = "15.625rem";
                         document.getElementById("main").style.marginRight = "15.625rem";
@@ -61,7 +63,8 @@
                         document.getElementById("mySidenav").style.width = "0";
                         document.getElementById("main").style.marginRight = "0";
                     }
-                            
+                    
+                    // Open + Close Cart Sidenav
                     function openCart() {
                         document.getElementById("mySideNavCart").style.width = "15.625rem";
                         document.getElementById("main").style.marginRight = "15.625rem";
@@ -72,8 +75,10 @@
                         document.getElementById("main").style.marginRight = "0";
                     }
 
+                    // Cart Data (Starts Empty)
                     let cart = [];
 
+                    // Add Item to Cart (Increases Quantity if Already Exists)
                     function addToCart(name, price, image = "") {
                         const existing = cart.find(item => item.name === name);
                         if (existing) {
@@ -85,11 +90,13 @@
                         openCart();
                     }
 
+                    // Remove Item from Cart
                     function removeFromCart(index) {
                         cart.splice(index, 1);
                         renderCart();
                     }
 
+                    // Change Quantity of Item in Cart (Removes Item at 0 Quantity)
                     function changeQty(index, delta) {
                         cart[index].qty += delta;
                         if (cart[index].qty <= 0) {
@@ -98,10 +105,12 @@
                         renderCart();
                     }
 
+                    // Build Cart HTML and Calculate Total
                     function renderCart() {
                         const cartItemsDiv = document.getElementById("cartItems");
                         const cartTotalSpan = document.getElementById("cartTotal");
 
+                        // Empty Cart Message
                         if (cart.length === 0) {
                             cartItemsDiv.innerHTML = `<p class="cart-empty">Your cart is empty.</p>`;
                             cartTotalSpan.textContent = "$0.00";
@@ -111,6 +120,7 @@
                         let html = "";
                         let total = 0;
 
+                        // Loop through cart Items
                         cart.forEach((item, index) => {
                             const lineTotal = item.price * item.qty;
                             total += lineTotal;
@@ -136,6 +146,7 @@
                         cartTotalSpan.textContent = `$${total.toFixed(2)}`;
                     }
 
+                    // Checkout Button (Only a Placeholder)
                     function checkout() {
                         if (cart.length === 0) {
                             alert("Your cart is empty!");
@@ -146,12 +157,15 @@
                 </script>
             </div>
         </header>
+        <!-- Main Content -->
         <main class="rules-page">
+            <!-- Navigation for Jumping to Sections -->
             <nav class="rules-jump" aria-label="Jump to section">
                 <a href="#basics">The Basics</a>
                 <a href="#fielding">Fielding Positions</a>
                 <a href="#nuances">Tactical Nuances</a>
             </nav>
+            <!--Basic Rules Section: Text Left, Images Right-->
             <section id="basics" class="rules-section">
                 <h1>Rules</h1>
                 <div class="rules-grid">
@@ -177,6 +191,7 @@
                         <p><span class="term">Overs:</span> The game is measured in "overs." One over equals 6 legal balls bowled by a single bowler.</p>
                         <p><span class="term">Innings:</span> One team bats while the other fields. Once the batting team loses 10 wickets or their overs run out, the teams swap roles.</p>
                     </div>
+                    <!-- Images on the Right -->
                     <img class="rules-pitch" src="Images/image_2026-10-05_230214578.jpg" alt="basic cricket pitch">
                     <div class="rules-side">
                         <img src="Images/image.jpg" alt="Scoreboard showing batters' runs, balls faced, fours and sixes, and the current run rate">
@@ -184,7 +199,9 @@
                     </div>
                 </div>
             </section>
+            <!--Divider-->
             <hr class="rules-divider">
+            <!--Advanced Rules Section: Text Left, Images Right-->
             <section id="advanced" class="rules-section">
                 <h1>Advanced Rules</h1>
                 <div id="fielding" class="adv-row">
@@ -210,6 +227,7 @@
                     </div>
                     <img class="fielding-img" src="Images/image_002.jpg" alt="Diagram of fielding positions for a right-handed batter, with the off side on the left and the leg side on the right">
                 </div>
+                <!--Tactical Nuances Section: Text Right, Images Left -->
                 <div id="nuances" class="adv-row adv-row-photos">
                     <div class="adv-photos">
                         <img src="Images/image_003.jpg" alt="A batter struck on the pad while fielders appeal for LBW">
@@ -241,8 +259,10 @@
                 </div>
             </section>
         </main>
+        <!--Footer-->
         <footer>
             <div class="footer">
+                <!--Contacts Column-->
                 <div class="footer-column">
                     <h2>Contacts</h2>
                     <p>
@@ -252,6 +272,7 @@
                         Phone: +64 020 4186 3681<br>Email: 23031@lbc.school.nz
                     </p>
                 </div>
+                <!--TOS Column-->
                 <div class="footer-column">
                     <h2>TOS</h2>
                     <p>
@@ -259,12 +280,14 @@
                         Provided "as-is" without warranties
                     </p>
                 </div>
+                <!--Privacy Column-->
                 <div class="footer-column">
                     <h2>Privacy</h2>
                     <p>
                         &copy; 2026 Pitch & Pavilion. Provided "as-is". We respect your privacy and never sell your data.
                     </p>
                 </div>
+                <!--Page Links Column-->
                 <div class="footer-column footer-page-section">
                     <h2>Pages</h2>
                     <div class="footer-page-links">
@@ -282,6 +305,7 @@
                     </div>
                 </div>
             </div>
+            <!--Copyright Bar-->
             <div class="footer-bottom">
                 <p>
                     &copy; 2026 Pitch & Pavilion. All rights reserved.
