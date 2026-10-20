@@ -1157,6 +1157,7 @@ footer {
 /* Style for the contact form inputs */
 .contact-page input {
     background-color: #3c3744;
+    color:#fff;
     width: 70%;
     margin-left: 15%;
     font-size: 1rem;
